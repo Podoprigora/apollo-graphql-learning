@@ -14,12 +14,14 @@ const typeDefs = gql`
   # Root mutations
 
   type Mutation {
-    addUser(user: UserInput!): NewRecord
+    addUser(record: UserInput!): RecordID
+    editUser(record: UserModifiedInput!): RecordID
+    deleteUser(id: ID!): RecordID
   }
 
   # New record
 
-  type NewRecord {
+  type RecordID {
     id: ID!
   }
 
@@ -88,10 +90,20 @@ const typeDefs = gql`
   }
 
   input UserInput {
+    companyId: ID
     firstName: String!
     lastName: String!
     age: Int!
     role: UserRole!
+  }
+
+  input UserModifiedInput {
+    id: ID!
+    companyId: ID
+    firstName: String
+    lastName: String
+    age: Int
+    role: UserRole
   }
 `;
 
@@ -131,9 +143,19 @@ const resolvers = {
   },
   Mutation: {
     async addUser(_, args) {
-      const { user } = args;
+      const { record } = args;
 
-      return UserApi.save(user);
+      return UserApi.save(record);
+    },
+    async editUser(_, args) {
+      const { record } = args;
+
+      return UserApi.save(record);
+    },
+    async deleteUser(_, args) {
+      const { id } = args;
+
+      return UserApi.delete(id);
     },
   },
 

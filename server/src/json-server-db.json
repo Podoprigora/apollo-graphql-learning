@@ -18,11 +18,35 @@
     },
     {
       "id": "50",
-      "companyId": "2",
       "firstName": "Nick",
       "lastName": "Wright",
-      "age": 30,
-      "role": "user"
+      "companyId": "1",
+      "age": 31,
+      "role": "customer"
+    },
+    {
+      "firstName": "Alexandr",
+      "lastName": "Podoprigora",
+      "age": 37,
+      "role": "admin",
+      "companyId": "2",
+      "id": "rmSpaNG"
+    },
+    {
+      "companyId": "2",
+      "firstName": "Alexandr",
+      "lastName": "Podoprigora",
+      "age": 37,
+      "role": "admin",
+      "id": "oZYVNnw"
+    },
+    {
+      "companyId": "2",
+      "firstName": "Alexandr",
+      "lastName": "Podoprigora",
+      "age": 37,
+      "role": "admin",
+      "id": "SBhKmTD"
     }
   ],
   "companies": [

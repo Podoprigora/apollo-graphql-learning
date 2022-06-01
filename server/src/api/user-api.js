@@ -13,10 +13,24 @@ class UserApi {
     return response.data;
   }
 
-  static async save(content) {
-    const response = await http.post('/users', content);
+  static async save(record) {
+    const { id } = record;
 
-    return response.data;
+    if (id) {
+      const response = await http.patch(`/users/${id}`, record);
+
+      return response.data;
+    } else {
+      const response = await http.post('/users', record);
+
+      return response.data;
+    }
+  }
+
+  static async delete(id) {
+    await http.delete(`/users/${id}`);
+
+    return { id };
   }
 }
 
