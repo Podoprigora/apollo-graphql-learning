@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "23",
+      "companyId": "1",
+      "firstName": "Bill",
+      "lastName": "Shorten",
+      "age": 20,
+      "role": "admin"
+    },
+    {
+      "id": "47",
+      "companyId": "2",
+      "firstName": "Samantha",
+      "lastName": "Fox",
+      "age": 21,
+      "role": "user"
+    },
+    {
+      "id": "50",
+      "companyId": "2",
+      "firstName": "Nick",
+      "lastName": "Wright",
+      "age": 30,
+      "role": "user"
+    }
+  ],
+  "companies": [
+    {
+      "id": "1",
+      "name": "Apple",
+      "description": "iphone"
+    },
+    {
+      "id": "2",
+      "name": "Google",
+      "description": "search"
+    }
+  ],
+  "heroes": [
+    {
+      "id": "1",
+      "name": "Han Solo",
+      "height": 1.8
+    },
+    {
+      "id": "2",
+      "name": "R2-D2",
+      "primaryFunction": "Astromech"
+    }
+  ]
+}
