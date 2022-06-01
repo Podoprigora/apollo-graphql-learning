@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "concurrently npm:server:*",
-    "server:apollo": "nodemon ./src/server/index.js",
+    "server:apollo": "nodemon ./src/server.js",
     "server:json": "json-server --watch ./src/json-server-db.json --port 5010"
   },
   "nodemonConfig": {

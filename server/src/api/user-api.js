@@ -12,6 +12,12 @@ class UserApi {
 
     return response.data;
   }
+
+  static async save(content) {
+    const response = await http.post('/users', content);
+
+    return response.data;
+  }
 }
 
 module.exports = {

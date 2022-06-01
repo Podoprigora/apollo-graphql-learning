@@ -14,7 +14,7 @@ class CompanyApi {
   }
 
   static async fetchUsers(id) {
-    const response = await http.get(`/companies/2/users`);
+    const response = await http.get(`/companies/${id}/users`);
 
     return response.data;
   }

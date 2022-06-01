@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 const { UserApi, CompanyApi, HeroApi } = require('./api');
 
 const typeDefs = gql`
-  # Root query
+  # Root queries
 
   type Query {
     user(id: ID!): UserProfile
@@ -11,7 +11,19 @@ const typeDefs = gql`
     hero(id: ID!): Character
   }
 
-  # Hero queries
+  # Root mutations
+
+  type Mutation {
+    addUser(user: UserInput!): NewRecord
+  }
+
+  # New record
+
+  type NewRecord {
+    id: ID!
+  }
+
+  # Hero
 
   interface Character {
     id: ID!
@@ -30,7 +42,16 @@ const typeDefs = gql`
     primaryFunction: String!
   }
 
-  # User queries
+  # Company
+
+  type Company {
+    id: ID!
+    name: String!
+    description: String
+    users: [UserProfile!]
+  }
+
+  # User
 
   interface User {
     id: ID!
@@ -45,13 +66,6 @@ const typeDefs = gql`
     admin
     user
     customer
-  }
-
-  type Company {
-    id: ID!
-    name: String!
-    description: String
-    users: [UserProfile!]
   }
 
   type UserProfile implements User {
@@ -69,6 +83,13 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     fullName: String!
+    age: Int!
+    role: UserRole!
+  }
+
+  input UserInput {
+    firstName: String!
+    lastName: String!
     age: Int!
     role: UserRole!
   }
@@ -106,6 +127,13 @@ const resolvers = {
       const { id } = args;
 
       return HeroApi.fetchById(id);
+    },
+  },
+  Mutation: {
+    async addUser(_, args) {
+      const { user } = args;
+
+      return UserApi.save(user);
     },
   },
 
