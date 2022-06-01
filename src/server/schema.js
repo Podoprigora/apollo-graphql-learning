@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server');
-
-const { http } = require('./http');
+const { UserApi, CompanyApi, HeroApi } = require('./api');
 
 const typeDefs = gql`
   # Root query
@@ -90,27 +89,23 @@ const resolvers = {
     async user(_, args) {
       const { id } = args;
 
-      const response = await http.get(`/users/${id}`);
-      return response.data;
+      return UserApi.fetchById(id);
     },
 
     async users() {
-      const response = await http.get(`/users`);
-      return response.data;
+      return UserApi.fetchAll();
     },
 
     async company(_, args) {
       const { id } = args;
 
-      const response = await http.get(`/companies/${id}`);
-      return response.data;
+      return CompanyApi.fetchById(id);
     },
 
     async hero(_, args) {
       const { id } = args;
 
-      const response = await http.get(`/heroes/${id}`);
-      return response.data;
+      return HeroApi.fetchById(id);
     },
   },
 
@@ -123,8 +118,7 @@ const resolvers = {
     company: async (parent) => {
       const { companyId } = parent;
 
-      const response = await http.get(`/companies/${companyId}`);
-      return response.data;
+      return CompanyApi.fetchById(companyId);
     },
   },
 
@@ -132,8 +126,7 @@ const resolvers = {
     users: async (parent) => {
       const { id } = parent;
 
-      const response = await http.get(`/users/?companyId=${id}`);
-      return response.data;
+      return CompanyApi.fetchUsers(id);
     },
   },
 

@@ -5,6 +5,5 @@ Learning of GraphQL and features of Apollo Server, Apollo Client.
 Copy or clone code, then:
 ```bash
 $ npm install
-$ npm run server:json
-$ npm run server:apollo
+$ npm run server
 ```
