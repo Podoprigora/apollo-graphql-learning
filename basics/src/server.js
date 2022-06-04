@@ -8,6 +8,6 @@ const server = new ApolloServer({
   csrfPrevention: true,
 });
 
-server.listen().then(({ url }) => {
+server.listen({ port: 5011 }).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
