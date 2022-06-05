@@ -1,0 +1,57 @@
+{
+  "modules": [
+    {
+      "id": "1",
+      "title": "Node.js",
+      "description": "Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.",
+      "screenSize": "10"
+    }
+  ],
+  "answers": [
+    {
+      "id": "1",
+      "moduleId": "1",
+      "name": "q1",
+      "title": "In which of the following areas, Node.js is perfect to use?",
+      "selectionType": "single"
+    }
+  ],
+  "options": [
+    {
+      "id": "1",
+      "answerId": "1",
+      "name": "a",
+      "title": "I/O bound Applications",
+      "correct": false
+    },
+    {
+      "id": "2",
+      "answerId": "1",
+      "name": "b",
+      "title": "Data Streaming Applications",
+      "correct": true
+    },
+    {
+      "id": "3",
+      "answerId": "1",
+      "name": "c",
+      "title": "Data Intensive Realtime Applications (DIRT)",
+      "correct": false
+    },
+    {
+      "id": "4",
+      "answerId": "1",
+      "name": "d",
+      "title": "All of the above.",
+      "correct": false
+    }
+  ],
+  "results": [
+    {
+      "id": "1",
+      "moduleId": "1",
+      "answerId": "1",
+      "optionId": "2"
+    }
+  ]
+}
