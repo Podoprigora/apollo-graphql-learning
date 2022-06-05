@@ -7,7 +7,7 @@
       "screenSize": "10"
     }
   ],
-  "answers": [
+  "questions": [
     {
       "id": "1",
       "moduleId": "1",
@@ -19,28 +19,28 @@
   "options": [
     {
       "id": "1",
-      "answerId": "1",
+      "questionId": "1",
       "name": "a",
       "title": "I/O bound Applications",
       "correct": false
     },
     {
       "id": "2",
-      "answerId": "1",
+      "questionId": "1",
       "name": "b",
       "title": "Data Streaming Applications",
       "correct": true
     },
     {
       "id": "3",
-      "answerId": "1",
+      "questionId": "1",
       "name": "c",
       "title": "Data Intensive Realtime Applications (DIRT)",
       "correct": false
     },
     {
       "id": "4",
-      "answerId": "1",
+      "questionId": "1",
       "name": "d",
       "title": "All of the above.",
       "correct": false
@@ -50,7 +50,7 @@
     {
       "id": "1",
       "moduleId": "1",
-      "answerId": "1",
+      "questionId": "1",
       "optionId": "2"
     }
   ]
