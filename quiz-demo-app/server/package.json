@@ -18,7 +18,9 @@
     "apollo-server": "^3.8.2",
     "axios": "^0.27.2",
     "graphql": "^16.5.0",
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "concurrently": "^7.2.1",

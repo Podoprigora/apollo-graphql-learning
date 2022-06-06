@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-const { ModuleApi } = require('./api');
+const { ModuleApi, UserApi } = require('./api');
 
 const typeDefs = gql`
   # Root
@@ -8,6 +8,7 @@ const typeDefs = gql`
   type Query {
     modules(pagination: PaginationInput!): [ModuleListItem!]
     module(id: ID!): ModuleProfile!
+    userInfo: UserInfo!
   }
 
   type Mutation {
@@ -86,6 +87,15 @@ const typeDefs = gql`
     name: String!
     title: String!
   }
+
+  type UserInfo {
+    id: ID!
+    firsName: String!
+    lastName: String!
+    fullName: String!
+    email: String!
+    pictureUrl: String
+  }
 `;
 
 const resolvers = {
@@ -95,11 +105,13 @@ const resolvers = {
 
       return ModuleApi.fetchAll(pagination);
     },
-
     async module(_, args) {
       const { id } = args;
 
       return ModuleApi.fetchById(id);
+    },
+    async userInfo() {
+      return UserApi.getRandomOne();
     },
   },
 
@@ -108,6 +120,14 @@ const resolvers = {
       const { id } = parent;
 
       return ModuleApi.fetchQuestions(id);
+    },
+  },
+
+  UserInfo: {
+    fullName(parent) {
+      const { firstName, lastName } = parent || {};
+
+      return [firstName, lastName].join(' ');
     },
   },
 
