@@ -1,7 +1,9 @@
 {
-  "name": "quiz-demo-app",
+  "name": "quiz-demo-app-server",
   "version": "1.0.0",
   "description": "",
+  "author": "Alexander Podoprigora",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "server": "concurrently npm:server:*",
