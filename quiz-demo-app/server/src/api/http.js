@@ -1,7 +1,9 @@
 const axios = require('axios').default;
 
+const { config } = require('../config');
+
 const http = axios.create({
-  baseURL: 'http://localhost:5021',
+  baseURL: config.apiBaseUrl,
 });
 
 module.exports = {
