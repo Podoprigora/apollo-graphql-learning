@@ -1,7 +1,16 @@
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { useMemo } from 'react';
+
+import {
+  ThemeProvider as MuiThemeProvider,
+  StyledEngineProvider,
+  createTheme,
+  ThemeOptions,
+} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { theme } from './theme';
+import { ComponentsOverrides } from './overrides';
+import { typography } from './typography';
+import { palette } from './palette';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
@@ -10,10 +19,24 @@ export interface ThemeProviderProps {
 export const ThemeProvider = (props: ThemeProviderProps) => {
   const { children } = props;
 
+  const themeValues = useMemo<ThemeOptions>(
+    () => ({
+      typography,
+      palette,
+    }),
+    []
+  );
+
+  themeValues.components = ComponentsOverrides(themeValues);
+
+  const theme = createTheme(themeValues);
+
   return (
-    <MuiThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </MuiThemeProvider>
+    <StyledEngineProvider injectFirst>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MuiThemeProvider>
+    </StyledEngineProvider>
   );
 };
