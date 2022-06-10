@@ -1,6 +1,6 @@
-import { ThemeOptions, Components } from '@mui/material/styles';
+import { Theme, Components } from '@mui/material/styles';
 
-export const CssBaseline = (theme: ThemeOptions): Components => {
+export const CssBaseline = (theme: Theme): Components => {
   return {
     MuiCssBaseline: {
       styleOverrides: {

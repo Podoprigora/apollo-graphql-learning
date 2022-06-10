@@ -4,14 +4,14 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 
 import { ThemeProvider } from '../theme';
-import { PageLayout } from '../layouts';
+import { MainLayout } from '../layouts';
 
 export interface AppProps {}
 
 export const App = (props: AppProps) => {
   return (
     <ThemeProvider>
-      <PageLayout>
+      <MainLayout>
         <Typography variant="h1">Header 1</Typography>
         <Typography variant="h2">Header 2</Typography>
         <Typography variant="h3">Header 3</Typography>
@@ -365,7 +365,7 @@ export const App = (props: AppProps) => {
           reprehenderit debitis dolore fugiat doloribus modi. Voluptate quaerat
           accusantium a facere id, quo itaque ad quasi.
         </Typography>
-      </PageLayout>
+      </MainLayout>
     </ThemeProvider>
   );
 };

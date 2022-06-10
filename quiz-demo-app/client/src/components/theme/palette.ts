@@ -1,4 +1,4 @@
-import { Palette, alpha } from '@mui/material/styles';
+import { Palette } from '@mui/material/styles';
 import grey from '@mui/material/colors/grey';
 
 export const palette: Partial<Palette> = {
@@ -11,14 +11,14 @@ export const palette: Partial<Palette> = {
 
   text: {
     primary: grey[900],
-    secondary: grey['A700'],
+    secondary: grey[600],
     disabled: '',
   },
 
   background: {
-    default: alpha('#efebeb', 0.65),
+    default: '#f1eded',
     paper: '#fff',
   },
 
-  divider: alpha('#d7ccc8', 0.6),
+  divider: '#e1d9d7',
 };

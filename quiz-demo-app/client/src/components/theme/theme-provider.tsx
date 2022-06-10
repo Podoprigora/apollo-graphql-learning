@@ -5,12 +5,14 @@ import {
   StyledEngineProvider,
   createTheme,
   ThemeOptions,
+  Theme,
 } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import { ComponentsOverrides } from './overrides';
 import { typography } from './typography';
 import { palette } from './palette';
+import { shape } from './shape';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
@@ -23,11 +25,12 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
     () => ({
       typography,
       palette,
+      shape,
     }),
     []
   );
 
-  themeValues.components = ComponentsOverrides(themeValues);
+  themeValues.components = ComponentsOverrides(themeValues as Theme);
 
   const theme = createTheme(themeValues);
 

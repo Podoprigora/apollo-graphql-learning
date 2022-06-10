@@ -9,6 +9,12 @@ export const typography: Partial<Typography> = {
   fontFamily: 'Poppins, "Roboto", "Arial", sans-serif',
   fontWeightBold: 600,
 
+  h4: {
+    fontWeight: 500,
+  },
+  h5: {
+    fontWeight: 500,
+  },
   body1: {
     fontSize: pxToRem(16),
   },
