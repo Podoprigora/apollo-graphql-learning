@@ -29,15 +29,15 @@ const ListStyles = styled(List)(({ theme }) => {
       },
 
       '&.Mui-selected': {
+        backgroundColor: alpha(theme.palette.primary.main, 0.2),
+
         '.MuiAvatar-root': {
-          backgroundColor: alpha(
-            theme.palette.primary.main,
-            theme.palette.action.selectedOpacity
-          ),
+          backgroundColor: 'transparent',
           color: theme.palette.primary.main,
         },
-        '.MuiListItemText-root': {
+        '.MuiListItemText-primary': {
           color: theme.palette.primary.main,
+          fontWeight: theme.typography.fontWeightMedium,
         },
       },
     },
@@ -48,7 +48,7 @@ const ListStyles = styled(List)(({ theme }) => {
 
     '.MuiListItemText-secondary': {
       fontSize: theme.typography.pxToRem(13),
-      lineHeight: 1.2,
+      lineHeight: 1.6,
     },
   };
 });

@@ -5,7 +5,7 @@ export const Avatar = (theme: Theme): Components => {
     MuiAvatar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#ede9e6',
+          backgroundColor: '#ecedef',
           color: theme.palette.text.secondary,
         },
       },

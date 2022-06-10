@@ -16,9 +16,9 @@ export const palette: Partial<Palette> = {
   },
 
   background: {
-    default: '#f1eded',
+    default: '#f5f7f9',
     paper: '#fff',
   },
 
-  divider: '#e1d9d7',
+  divider: '#e1e3e5',
 };

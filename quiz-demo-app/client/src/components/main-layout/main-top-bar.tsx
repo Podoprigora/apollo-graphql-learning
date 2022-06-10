@@ -27,7 +27,7 @@ const ToolbarStyles = styled(Toolbar)(({ theme }) => {
   return {
     display: 'grid',
     gridAutoFlow: 'column',
-    gridGap: theme.spacing(2),
+    gridGap: theme.spacing(1.5),
     justifyContent: 'start',
   };
 });
@@ -48,7 +48,7 @@ export const MainTopBar = (props: MainTopBarProps) => {
   return (
     <RootStyles elevation={elevation} sx={{ display: { lg: 'none' } }}>
       <ToolbarStyles>
-        <IconButton onClick={openMobileNav}>
+        <IconButton edge="start" onClick={openMobileNav}>
           <MenuRoundedIcon />
         </IconButton>
         <Logo size="small" />
