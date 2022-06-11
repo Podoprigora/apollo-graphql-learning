@@ -63,6 +63,7 @@ export const MainNavListItem = (props: MainNavListItemProps) => {
 
   const toPath = useResolvedPath(to);
   const location = useLocation();
+
   const selected = !!matchPath(
     {
       path: toPath.pathname,
@@ -70,8 +71,6 @@ export const MainNavListItem = (props: MainNavListItemProps) => {
     },
     location.pathname
   );
-
-  // console.log({ location, toPath });
 
   return (
     <RootStyles component={RouterLink} to={to} selected={selected}>
