@@ -15,7 +15,7 @@ const ContentStyles = styled('section')(({ theme }) => {
 });
 
 // Component
-export const MainContnent = (props: MainContentProps) => {
+export const MainContent = (props: MainContentProps) => {
   const { children } = props;
 
   return (

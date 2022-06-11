@@ -1,12 +1,13 @@
 import { styled } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 
-import { MainAsideContent } from './main-aside-content';
-import { useMainLayout } from './main-context';
+import { useMainLayout } from '../main-layout-context';
 
 // Interfaces
 
-export interface MainAsideProps {}
+export interface MainAsideProps {
+  children?: React.ReactNode;
+}
 
 // Styles
 
@@ -26,6 +27,7 @@ const DrawerStyles = styled(Drawer)(({ theme }) => {
 // Component
 
 export const MainAside = (props: MainAsideProps) => {
+  const { children } = props;
   const { isOpenedMobileNav, closeMobileNav } = useMainLayout();
   const container = window.document.body;
 
@@ -39,7 +41,7 @@ export const MainAside = (props: MainAsideProps) => {
         sx={{ display: { xs: 'block', lg: 'none' } }}
         onClose={closeMobileNav}
       >
-        <MainAsideContent />
+        {children}
       </DrawerStyles>
       <DrawerStyles
         open
@@ -47,7 +49,7 @@ export const MainAside = (props: MainAsideProps) => {
         anchor="left"
         sx={{ display: { xs: 'none', lg: 'block' } }}
       >
-        <MainAsideContent />
+        {children}
       </DrawerStyles>
     </>
   );

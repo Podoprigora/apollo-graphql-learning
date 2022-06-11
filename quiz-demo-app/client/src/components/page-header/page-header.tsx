@@ -16,6 +16,7 @@ const HeaderStyles = styled('header')(({ theme }) => {
     gridGap: theme.spacing(2),
     alignItems: 'center',
     marginBottom: theme.spacing(4),
+    minHeight: 40,
   };
 });
 

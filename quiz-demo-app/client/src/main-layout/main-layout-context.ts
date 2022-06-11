@@ -1,4 +1,4 @@
-import { createCtx } from '../utils';
+import { createCtx } from '~/components/utils';
 
 export type MainLayoutContextValue = {
   isOpenedMobileNav: boolean;

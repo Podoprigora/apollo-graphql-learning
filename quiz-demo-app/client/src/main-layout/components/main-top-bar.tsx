@@ -7,8 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
-import { Logo } from '../logo';
-import { useMainLayout } from './main-context';
+import { Logo } from '~/components/logo';
+import { useMainLayout } from '../main-layout-context';
 
 // Interfaces
 export interface MainTopBarProps {}

@@ -63,25 +63,22 @@ const SecondaryTextStyles = styled(Typography)(({ theme }) => {
 }) as typeof Typography;
 
 // Component
-// @TODO: get rid of hardcoded data
-
 export const MainUserProfileLink = (props: MainUserProfileLinkProps) => {
   const { data } = props;
   const { avatarUrl, primaryText, secondaryText } = data || {};
 
   return (
     <RootStyles component="a">
-      <AvatarStyles
-        src="https://randomuser.me/api/portraits/med/men/15.jpg"
-        variant="circular"
-      />
+      {avatarUrl && <AvatarStyles src={avatarUrl} variant="circular" />}
       <TextContainterStyles>
         <PrimaryTextStyles component="div" noWrap>
-          Demo User
+          {primaryText}
         </PrimaryTextStyles>
-        <SecondaryTextStyles component="div" noWrap>
-          demo-user@mail.com
-        </SecondaryTextStyles>
+        {secondaryText && (
+          <SecondaryTextStyles component="div" noWrap>
+            demo-user@mail.com
+          </SecondaryTextStyles>
+        )}
       </TextContainterStyles>
     </RootStyles>
   );
