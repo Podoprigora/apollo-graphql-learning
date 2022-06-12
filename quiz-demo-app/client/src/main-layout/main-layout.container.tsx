@@ -5,6 +5,7 @@ import {
   MainLayoutContextValue,
 } from './main-layout-context';
 import { MainLayout as MainLayoutView } from './components/main-layout';
+import { userProfileFixture } from '~/fixutures';
 
 export const MainLayout = () => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
@@ -27,14 +28,7 @@ export const MainLayout = () => {
 
   return (
     <MainLayoutContext.Provider value={contextValue}>
-      <MainLayoutView
-        userProfileData={{
-          id: '1',
-          primaryText: 'Demo User',
-          secondaryText: 'demo-user@mail.com',
-          avatarUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
-        }}
-      />
+      <MainLayoutView userProfileData={userProfileFixture} />
     </MainLayoutContext.Provider>
   );
 };

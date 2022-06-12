@@ -13,6 +13,7 @@ import { ComponentsOverrides } from './overrides';
 import { typography } from './typography';
 import { palette } from './palette';
 import { shape } from './shape';
+import { shadows } from './shadows';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
@@ -26,6 +27,7 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
       typography,
       palette,
       shape,
+      shadows,
     }),
     []
   );
