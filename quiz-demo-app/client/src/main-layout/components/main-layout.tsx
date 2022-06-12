@@ -2,13 +2,14 @@ import { Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
+import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import FolderCopyOutlinedIcon from '@mui/icons-material/FolderCopyOutlined';
 
 import { Logo } from '~/components/logo';
 import { MainAside } from './main-aside';
 import { MainTopBar } from './main-top-bar';
-import { MainContent } from './main-content';
 import {
   MainUserProfileLink,
   MainUserProfileLinkProps,
@@ -31,6 +32,12 @@ const RootStyles = styled('div')({
 const MainStyles = styled('main')({
   flex: 1,
   position: 'relative',
+});
+
+const ContentStyles = styled('section')(({ theme }) => {
+  return {
+    padding: theme.spacing(7, 1),
+  };
 });
 
 const AsideHeaderStyles = styled('div')(({ theme }) => {
@@ -62,7 +69,7 @@ export const MainLayout = (props: MainLayoutProps) => {
     <RootStyles>
       <MainAside>
         <AsideHeaderStyles sx={{ display: { xs: 'none', lg: 'block' } }}>
-          <Logo size="large" />
+          <Logo size="large" to="/" />
         </AsideHeaderStyles>
         <Divider />
         <AsideUserProfileStyles>
@@ -87,9 +94,12 @@ export const MainLayout = (props: MainLayoutProps) => {
 
       <MainStyles>
         <MainTopBar />
-        <MainContent>
-          <Outlet />
-        </MainContent>
+        <Container>
+          <ContentStyles>
+            <Toolbar sx={{ display: { lg: 'none' } }} />
+            <Outlet />
+          </ContentStyles>
+        </Container>
       </MainStyles>
     </RootStyles>
   );

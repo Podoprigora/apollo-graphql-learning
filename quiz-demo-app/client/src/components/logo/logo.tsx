@@ -1,8 +1,16 @@
+import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
 export interface LogoProps {
   size?: 'small' | 'large';
+  to?: string;
 }
+
+const LinkStyles = styled(RouterLink)(({ theme }) => {
+  return {
+    textDecoration: 'none',
+  };
+});
 
 const LogoStyles = styled('span')<LogoProps>(({ theme, size }) => {
   const fontSize =
@@ -19,5 +27,14 @@ const LogoStyles = styled('span')<LogoProps>(({ theme, size }) => {
 });
 
 export const Logo = (props: LogoProps) => {
-  return <LogoStyles {...props}>Quiz Demo</LogoStyles>;
+  const { to, ...other } = props;
+
+  const contentElement = <LogoStyles {...other}>Quiz Demo</LogoStyles>;
+  const parsedTo = to?.trim();
+
+  if (parsedTo && parsedTo.length > 0) {
+    return <LinkStyles to={parsedTo}>{contentElement}</LinkStyles>;
+  }
+
+  return contentElement;
 };

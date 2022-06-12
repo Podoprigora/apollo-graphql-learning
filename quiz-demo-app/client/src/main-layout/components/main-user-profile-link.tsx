@@ -28,7 +28,7 @@ const RootStyles = styled(Button)(({ theme }) => {
     textDecoration: 'none',
     padding: theme.spacing(2),
     borderRadius: theme.shape.borderRadiusLarge,
-    cursor: 'pointer',
+    pointerEvents: 'none',
   };
 }) as typeof Button;
 
