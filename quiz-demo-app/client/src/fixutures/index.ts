@@ -1,2 +1,2 @@
 export * from './user-profile';
-export * from './module-list';
+export * from './editor-module-list';

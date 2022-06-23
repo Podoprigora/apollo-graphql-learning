@@ -1,28 +1,21 @@
 import { styled } from '@mui/material/styles';
 
-import { ModuleCard } from '../module-card';
-
 // Interfaces
-export interface ModuleListProps {}
+export interface ModuleListProps {
+  children?: React.ReactNode;
+}
 
 // Styles
-const ModuleListRootStyles = styled('div')(({ theme }) => {
+const ModuleListStyles = styled('div')(({ theme }) => {
   return {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))',
     gridGap: theme.spacing(2),
   };
 });
 
 export const ModuleList = (props: ModuleListProps) => {
-  const testTo = '/editor/new';
+  const { children } = props;
 
-  return (
-    <ModuleListRootStyles>
-      <ModuleCard to={testTo} />
-      <ModuleCard to={testTo} />
-      <ModuleCard to={testTo} />
-      <ModuleCard to={testTo} />
-    </ModuleListRootStyles>
-  );
+  return <ModuleListStyles>{children}</ModuleListStyles>;
 };

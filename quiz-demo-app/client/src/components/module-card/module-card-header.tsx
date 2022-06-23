@@ -13,9 +13,17 @@ export interface ModuleCardHeaderProps {
   noWrap?: boolean;
 }
 
+interface ModuleCardHeaderStylesProps {
+  ownerState: {
+    noWrap?: boolean;
+  };
+}
+
 // Styles
-const ModuleCardHeaderStyles = styled('header')<Partial<ModuleCardHeaderProps>>(
-  ({ theme, noWrap }) => {
+const ModuleCardHeaderStyles = styled('header')<ModuleCardHeaderStylesProps>(
+  ({ theme, ownerState }) => {
+    const { noWrap } = ownerState;
+
     return {
       ...(noWrap && { overflow: 'hidden' }),
 
@@ -39,7 +47,7 @@ export const ModuleCardHeader = (props: ModuleCardHeaderProps) => {
   const { title, subtitle, noWrap = false } = props;
 
   return (
-    <ModuleCardHeaderStyles noWrap={noWrap}>
+    <ModuleCardHeaderStyles ownerState={{ noWrap }}>
       <ModuleCardTitleStyles noWrap={noWrap}>{title}</ModuleCardTitleStyles>
       {subtitle && <ModuleCardSubtitle>{subtitle}</ModuleCardSubtitle>}
     </ModuleCardHeaderStyles>

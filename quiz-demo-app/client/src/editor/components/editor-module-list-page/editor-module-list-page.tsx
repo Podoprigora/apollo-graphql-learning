@@ -1,6 +1,6 @@
 import { PageHeader } from '~/components/page-header';
 import { RouterButton } from '~/components/router-button';
-import { ModuleList } from '~/components/module-list';
+import { EditorModuleList } from '../../containers';
 
 export interface EditorModuleListPageProps {}
 
@@ -19,8 +19,7 @@ export const EditorModuleListPage = (props: EditorModuleListPageProps) => {
           </RouterButton>
         }
       />
-
-      <ModuleList />
+      <EditorModuleList />
     </>
   );
 };
