@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import {
   ModuleCard,
@@ -6,6 +6,7 @@ import {
   ModuleCardBody,
   ModuleCardHeader,
 } from '~/components/module-card';
+import { EditorModuleListItemActions } from './editor-module-list-item-actions';
 
 // Interfaces
 export interface EditorModuleListItemData {
@@ -39,9 +40,19 @@ const getQuestionText = (count = 0) => {
 
 // Component
 export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
-  const { data, to } = props;
+  const { data, to, onDelete } = props;
   const { title, description, questionCount, user } = data;
 
+  const handleDelete = useCallback(
+    (ev: React.MouseEvent<HTMLButtonElement>) => {
+      if (onDelete) {
+        onDelete(ev, data);
+      }
+    },
+    [data, onDelete]
+  );
+
+  // Render
   const questionText = getQuestionText(questionCount);
   const userFullname = [user?.firstName, user?.lastName].join(' ');
 
@@ -51,7 +62,11 @@ export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
       {description && (
         <ModuleCardBody maxLength={160}>{description}</ModuleCardBody>
       )}
-      <ModuleCardActionBar title={userFullname} avatarUrl={user?.imageUrl} />
+      <ModuleCardActionBar
+        title={userFullname}
+        avatarUrl={user?.imageUrl}
+        action={<EditorModuleListItemActions onDelete={handleDelete} />}
+      />
     </ModuleCard>
   );
 };
