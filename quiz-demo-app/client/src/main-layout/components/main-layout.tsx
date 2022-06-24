@@ -36,7 +36,11 @@ const MainStyles = styled('main')({
 
 const ContentStyles = styled('section')(({ theme }) => {
   return {
-    padding: theme.spacing(7, 1),
+    padding: theme.spacing(7.5, 1),
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(4, 0),
+    },
   };
 });
 
@@ -68,7 +72,7 @@ export const MainLayout = (props: MainLayoutProps) => {
   return (
     <RootStyles>
       <MainAside>
-        <AsideHeaderStyles sx={{ display: { xs: 'none', lg: 'block' } }}>
+        <AsideHeaderStyles sx={{ display: { xs: 'none', md: 'block' } }}>
           <Logo size="large" to="/" />
         </AsideHeaderStyles>
         <Divider />
@@ -96,7 +100,7 @@ export const MainLayout = (props: MainLayoutProps) => {
         <MainTopBar />
         <Container>
           <ContentStyles>
-            <Toolbar sx={{ display: { lg: 'none' } }} />
+            <Toolbar sx={{ display: { md: 'none' } }} />
             <Outlet />
           </ContentStyles>
         </Container>

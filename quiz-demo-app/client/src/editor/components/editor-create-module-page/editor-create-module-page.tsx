@@ -46,42 +46,6 @@ export const EditorCreateModulePage = (props: EditorCreateModulePageProps) => {
         perferendis qui sapiente dolores inventore! Consectetur, temporibus
         fuga! Autem veniam quidem placeat minima?
       </EditorCreateModuleFormSectionStyles>
-      <EditorCreateModuleFormSectionStyles>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
-        repudiandae ullam dignissimos vel at nostrum illo. Id vel quia ullam
-        voluptas, accusamus, a exercitationem commodi amet quaerat, consectetur
-        minima! Nemo? Voluptate quae deserunt, itaque blanditiis magni rem ad
-        incidunt iure eius voluptatibus nisi quas excepturi autem sit
-        perferendis qui sapiente dolores inventore! Consectetur, temporibus
-        fuga! Autem veniam quidem placeat minima?
-      </EditorCreateModuleFormSectionStyles>
-      <EditorCreateModuleFormSectionStyles>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
-        repudiandae ullam dignissimos vel at nostrum illo. Id vel quia ullam
-        voluptas, accusamus, a exercitationem commodi amet quaerat, consectetur
-        minima! Nemo? Voluptate quae deserunt, itaque blanditiis magni rem ad
-        incidunt iure eius voluptatibus nisi quas excepturi autem sit
-        perferendis qui sapiente dolores inventore! Consectetur, temporibus
-        fuga! Autem veniam quidem placeat minima?
-      </EditorCreateModuleFormSectionStyles>
-      <EditorCreateModuleFormSectionStyles>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
-        repudiandae ullam dignissimos vel at nostrum illo. Id vel quia ullam
-        voluptas, accusamus, a exercitationem commodi amet quaerat, consectetur
-        minima! Nemo? Voluptate quae deserunt, itaque blanditiis magni rem ad
-        incidunt iure eius voluptatibus nisi quas excepturi autem sit
-        perferendis qui sapiente dolores inventore! Consectetur, temporibus
-        fuga! Autem veniam quidem placeat minima?
-      </EditorCreateModuleFormSectionStyles>
-      <EditorCreateModuleFormSectionStyles>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
-        repudiandae ullam dignissimos vel at nostrum illo. Id vel quia ullam
-        voluptas, accusamus, a exercitationem commodi amet quaerat, consectetur
-        minima! Nemo? Voluptate quae deserunt, itaque blanditiis magni rem ad
-        incidunt iure eius voluptatibus nisi quas excepturi autem sit
-        perferendis qui sapiente dolores inventore! Consectetur, temporibus
-        fuga! Autem veniam quidem placeat minima?
-      </EditorCreateModuleFormSectionStyles>
 
       <StickyFbar>
         <Button variant="text" color="inherit">

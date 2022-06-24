@@ -38,7 +38,7 @@ export const MainAside = (props: MainAsideProps) => {
         variant="temporary"
         container={container}
         ModalProps={{ keepMounted: true }}
-        sx={{ display: { xs: 'block', lg: 'none' } }}
+        sx={{ display: { xs: 'block', md: 'none' } }}
         onClose={closeMobileNav}
       >
         {children}
@@ -47,7 +47,7 @@ export const MainAside = (props: MainAsideProps) => {
         open
         variant="permanent"
         anchor="left"
-        sx={{ display: { xs: 'none', lg: 'block' } }}
+        sx={{ display: { xs: 'none', md: 'block' } }}
       >
         {children}
       </DrawerStyles>

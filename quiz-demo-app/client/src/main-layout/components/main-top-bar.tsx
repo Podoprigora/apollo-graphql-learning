@@ -42,11 +42,11 @@ export const MainTopBar = (props: MainTopBarProps) => {
   });
 
   const elevation = useMemo(() => {
-    return scrollTrigger ? 4 : 0;
+    return scrollTrigger ? 1 : 0;
   }, [scrollTrigger]);
 
   return (
-    <RootStyles elevation={elevation} sx={{ display: { lg: 'none' } }}>
+    <RootStyles elevation={elevation} sx={{ display: { md: 'none' } }}>
       <ToolbarStyles>
         <IconButton edge="start" onClick={openMobileNav}>
           <MenuRoundedIcon />
