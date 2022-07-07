@@ -27,7 +27,10 @@ const StickyFbarStyles = styled('div')<StickyFbarStylesProps>(
       padding: theme.spacing(3, 0),
       backgroundColor: theme.palette.background.default,
 
-      ...(sticky && { boxShadow: '0 -4px 3px -2px rgba(0,0,0, 0.12)' }),
+      ...(sticky && {
+        boxShadow: '0 -4px 3px -2px rgba(0,0,0, 0.12)',
+        zIndex: theme.zIndex.appBar,
+      }),
     };
   }
 );
@@ -37,8 +40,9 @@ const target = typeof window !== 'undefined' ? window : null;
 // Component
 export const StickyFbar = (props: StickyFbarProps) => {
   const { children, ...other } = props;
-  const nodeRef = useRef<HTMLDivElement>(null);
+
   const [scrolledToBottom, setScrolledToBottom] = useState(false);
+  const nodeRef = useRef<HTMLDivElement>(null);
   const isPhone = useMediaQuery((theme: Theme) => {
     return theme.breakpoints.down('sm');
   });
