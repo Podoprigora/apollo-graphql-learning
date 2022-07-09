@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import _throttle from 'lodash/throttle';
 import { styled, Theme } from '@mui/material/styles';
@@ -47,15 +47,19 @@ export const StickyFbar = (props: StickyFbarProps) => {
     return theme.breakpoints.down('sm');
   });
 
-  useEffect(() => {
-    const handleScroll = _throttle(() => {
+  // Handlers
+  const handleScroll = useMemo(() => {
+    return _throttle(() => {
       if (nodeRef.current) {
         const { bottom } = nodeRef.current?.getBoundingClientRect();
 
         setScrolledToBottom(target?.innerHeight === bottom);
       }
     }, 166);
+  }, []);
 
+  // Effects
+  useEffect(() => {
     handleScroll();
 
     target?.addEventListener('scroll', handleScroll);
@@ -63,8 +67,21 @@ export const StickyFbar = (props: StickyFbarProps) => {
     return () => {
       target?.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
+  useEffect(() => {
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(handleScroll);
+
+      ro.observe(document.body);
+
+      return () => {
+        return ro.disconnect();
+      };
+    }
+  }, [handleScroll]);
+
+  // Render
   return (
     <StickyFbarStyles ref={nodeRef} ownerState={{ sticky: scrolledToBottom }}>
       <Stack

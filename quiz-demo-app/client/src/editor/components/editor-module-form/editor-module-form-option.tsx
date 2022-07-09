@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useRef } from 'react';
 
-import { FastField } from 'formik';
+import { Field } from 'formik';
 import { TextField as FormikTextField } from 'formik-mui';
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
@@ -48,6 +48,7 @@ const EditorModuleFormOptionInner = (props: EditorModuleFormOptionProps) => {
     if (titleNodeRef.current && autoFocus) {
       titleNodeRef.current.scrollIntoView({
         behavior: 'smooth',
+        block: 'center',
       });
     }
   }, [autoFocus]);
@@ -56,7 +57,8 @@ const EditorModuleFormOptionInner = (props: EditorModuleFormOptionProps) => {
   return (
     <FieldContainer direction="row" alignItems="center">
       <IndexStyles>{index + 1}.</IndexStyles>
-      <FastField
+
+      <Field
         component={FormikTextField}
         name={`questions[${parentIndex}].options[${index}].title`}
         autoFocus={autoFocus}
@@ -65,7 +67,9 @@ const EditorModuleFormOptionInner = (props: EditorModuleFormOptionProps) => {
         fullWidth
         multiline
         minRows={1}
-        inputRef={titleNodeRef}
+        InputProps={{
+          ref: titleNodeRef,
+        }}
       />
 
       <EditorModuleFormAnswerSwitch index={index} parentIndex={parentIndex} />

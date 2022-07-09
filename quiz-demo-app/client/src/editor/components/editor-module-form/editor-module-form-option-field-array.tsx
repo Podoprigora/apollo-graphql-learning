@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import { FieldArrayRenderProps } from 'formik';
+import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -18,6 +19,13 @@ export interface EditorModuleFormOptionFieldArrayProps
   extends FieldArrayRenderProps {
   index: number;
 }
+
+// Styles
+const TitleStyles = styled(PageSectionSubtitle)(({ theme }) => {
+  return {
+    margin: theme.spacing(0, 0, 1, 0),
+  };
+});
 
 // Component
 export const EditorModuleFormOptionFieldArray = (
@@ -46,7 +54,7 @@ export const EditorModuleFormOptionFieldArray = (
 
   return (
     <>
-      {items.length > 0 && <PageSectionSubtitle>Options</PageSectionSubtitle>}
+      {items.length > 0 && <TitleStyles>Options</TitleStyles>}
       {items.map((_, i) => {
         return (
           <EditorModuleFormOption
