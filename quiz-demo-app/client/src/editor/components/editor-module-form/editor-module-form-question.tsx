@@ -7,6 +7,7 @@ import {
 } from 'formik-mui';
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
+import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
@@ -17,7 +18,6 @@ import { FieldContainer } from '~/components/field-container';
 import { EditorModuleFormOptionFieldArray } from './editor-module-form-option-field-array';
 
 // Interface
-
 export interface EditorModuleFormQuestionProps {
   index: number;
   autoFocus?: boolean;
@@ -25,7 +25,6 @@ export interface EditorModuleFormQuestionProps {
 }
 
 // Styles
-
 const QuestionSectionStyles = styled(PageSection)(({ theme }) => {
   return {
     margin: theme.spacing(3, 0),
@@ -58,16 +57,6 @@ const IndexStyles = styled('h6')(({ theme }) => {
   };
 });
 
-const QuestionTbarActionsStyles = styled('div')(({ theme }) => {
-  return {
-    display: 'grid',
-    gridAutoFlow: 'column',
-    gridAutoColumns: 'min-content',
-    gridGap: theme.spacing(0.5),
-    marginLeft: 'auto',
-  };
-});
-
 // Component
 const EditorModuleFormQuestionInner = (
   props: EditorModuleFormQuestionProps
@@ -84,14 +73,19 @@ const EditorModuleFormQuestionInner = (
     <QuestionSectionStyles {...(index === 0 && { title: 'Questions' })}>
       <QuestionTbarStyles>
         <IndexStyles>{index + 1}.</IndexStyles>
-        <QuestionTbarActionsStyles>
-          <IconButton size="medium" disabled>
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={0}
+          sx={{ ml: 'auto' }}
+        >
+          <IconButton size="medium" disabled sx={{ mr: 0.5 }}>
             <DragHandleRoundedIcon />
           </IconButton>
           <IconButton size="medium" edge="end" onClick={handleDelete}>
             <DeleteOutlineRoundedIcon />
           </IconButton>
-        </QuestionTbarActionsStyles>
+        </Stack>
       </QuestionTbarStyles>
 
       <FieldContainer>

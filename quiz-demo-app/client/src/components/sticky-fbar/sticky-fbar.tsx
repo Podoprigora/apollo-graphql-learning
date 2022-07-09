@@ -54,7 +54,7 @@ export const StickyFbar = (props: StickyFbarProps) => {
 
         setScrolledToBottom(target?.innerHeight === bottom);
       }
-    }, 200);
+    }, 166);
 
     handleScroll();
 

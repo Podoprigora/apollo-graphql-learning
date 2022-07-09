@@ -1,13 +1,6 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 
-import {
-  useFormik,
-  FormikProvider,
-  Formik,
-  Field,
-  FastField,
-  FieldArray,
-} from 'formik';
+import { useFormik, FormikProvider, FastField, FieldArray } from 'formik';
 import { TextField as FormikTextField } from 'formik-mui';
 import Button from '@mui/material/Button';
 
@@ -15,32 +8,30 @@ import { PageHeader } from '~/components/page-header';
 import { StickyFbar } from '~/components/sticky-fbar';
 import { PageSection } from '~/components/page-section';
 import { FieldContainer } from '~/components/field-container';
+import {
+  initialValues,
+  validationSchema,
+  EditorModuleFormValues,
+} from './editor-module-form.helpers';
 import { EditorModuleFormQuestionFieldArray } from './editor-module-form-question-field-array';
 
 // Interfaces
 export interface EditorModuleFormProps {
   title?: string;
-  initialData?: Record<string, unknown>;
+  initialData?: EditorModuleFormValues;
 }
 
 // Component
-const initialValues = {
-  title: '',
-  description: '',
-  questions: [{ title: '', multipleChoice: true, options: [] }],
-};
-
-export type Values = typeof initialValues;
-
 export const EditorModuleForm = (props: EditorModuleFormProps) => {
   const { title } = props;
 
-  const handleSubmit = useCallback((values: Values) => {
+  const handleSubmit = useCallback((values: EditorModuleFormValues) => {
     console.log({ values });
   }, []);
 
   const formik = useFormik({
     initialValues,
+    validationSchema,
     validateOnChange: false,
     onSubmit: handleSubmit,
   });

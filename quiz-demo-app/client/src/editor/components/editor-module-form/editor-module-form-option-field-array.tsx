@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { FieldArrayRenderProps } from 'formik';
 import Button from '@mui/material/Button';
@@ -6,9 +6,12 @@ import AddIcon from '@mui/icons-material/Add';
 
 import { FieldContainer } from '~/components/field-container';
 import { PageSectionSubtitle } from '~/components/page-section';
-
-import { Values } from './editor-module-form';
+import {
+  EditorModuleFormValues,
+  newOptionPlaceholderData,
+} from './editor-module-form.helpers';
 import { EditorModuleFormOption } from './editor-module-form-option';
+import { EditorModuleFormErrorMessage } from './editor-module-form-error-message';
 
 // Interface
 export interface EditorModuleFormOptionFieldArrayProps
@@ -20,25 +23,43 @@ export interface EditorModuleFormOptionFieldArrayProps
 export const EditorModuleFormOptionFieldArray = (
   props: EditorModuleFormOptionFieldArrayProps
 ) => {
-  const { form, index, push } = props;
+  const { form, index, push, remove } = props;
+  const [addedManually, setAddedManually] = useState(false);
 
   const handleAdd = useCallback(() => {
-    push({
-      title: '',
-    });
+    push(newOptionPlaceholderData);
+    setAddedManually(true);
   }, [push]);
 
+  const handleDelete = useCallback(
+    (index: number) => {
+      remove(index);
+    },
+    [remove]
+  );
+
   const items = useMemo(() => {
-    return (form.values as Values).questions[index].options || [];
+    return (
+      (form.values as EditorModuleFormValues).questions[index].options || []
+    );
   }, [form.values, index]);
 
   return (
     <>
       {items.length > 0 && <PageSectionSubtitle>Options</PageSectionSubtitle>}
       {items.map((_, i) => {
-        return <EditorModuleFormOption key={i} index={i} />;
+        return (
+          <EditorModuleFormOption
+            key={i}
+            index={i}
+            parentIndex={index}
+            autoFocus={addedManually && i === items.length - 1}
+            onDelete={handleDelete}
+          />
+        );
       })}
 
+      <EditorModuleFormErrorMessage name={`questions[${index}].options`} />
       <FieldContainer>
         <Button
           variant="text"

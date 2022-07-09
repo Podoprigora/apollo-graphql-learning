@@ -56,6 +56,7 @@
     "@emotion/babel-plugin": "^11.9.2",
     "@types/lodash": "^4.14.182",
     "express": "^4.18.1",
-    "serve": "^13.0.4"
+    "serve": "^13.0.4",
+    "utility-types": "^3.10.0"
   }
 }
