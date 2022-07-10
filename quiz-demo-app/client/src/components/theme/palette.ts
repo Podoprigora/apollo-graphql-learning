@@ -11,7 +11,7 @@ export const palette: Partial<Palette> = {
 
   text: {
     primary: grey[900],
-    secondary: grey[600],
+    secondary: grey[500],
     disabled: '',
   },
 

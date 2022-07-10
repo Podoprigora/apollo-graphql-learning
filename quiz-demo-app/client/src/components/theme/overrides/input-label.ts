@@ -15,11 +15,18 @@ export const InputLabel = (theme: Theme): Components => {
           },
         },
         shrink: {
+          fontWeight: theme.typography.fontWeightMedium,
+          letterSpacing: 0.6,
           maxWidth: 'calc(133% - 24px)',
-          transform: 'translate(12px, 7px) scale(0.75)',
-          letterSpacing: 0.4,
           pointerEvents: 'auto',
           userSelect: 'none',
+          transform: 'translate(12px, 7px) scale(0.75)',
+
+          '&.Mui-focused': {
+            '&.MuiFormLabel-colorPrimary': {
+              color: theme.palette.primary.dark,
+            },
+          },
         },
       },
     },
