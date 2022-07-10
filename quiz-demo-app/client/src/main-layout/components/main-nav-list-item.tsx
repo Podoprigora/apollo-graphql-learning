@@ -18,6 +18,7 @@ export interface MainNavListItemProps {
   to: RouterLinkProps['to'];
   secondaryText?: string;
   icon?: React.ReactElement;
+  disabled?: boolean;
 }
 
 // Styles
@@ -59,7 +60,7 @@ const RootStyles = styled(ListItemButton)(({ theme }) => {
 
 // Component
 export const MainNavListItem = (props: MainNavListItemProps) => {
-  const { primaryText, secondaryText, icon, to } = props;
+  const { primaryText, secondaryText, icon, to, ...other } = props;
 
   const toPath = useResolvedPath(to);
   const location = useLocation();
@@ -73,7 +74,7 @@ export const MainNavListItem = (props: MainNavListItemProps) => {
   );
 
   return (
-    <RootStyles component={RouterLink} to={to} selected={selected}>
+    <RootStyles component={RouterLink} to={to} selected={selected} {...other}>
       {icon && (
         <ListItemAvatar>
           <Avatar color="primary">{icon}</Avatar>

@@ -21,7 +21,7 @@ export const initialValues: EditorModuleFormValues = {
       title: '',
       multipleChoice: false,
       options: [
-        { title: '', isAnswer: false },
+        { title: '', isAnswer: true },
         { title: '', isAnswer: false },
       ],
     },

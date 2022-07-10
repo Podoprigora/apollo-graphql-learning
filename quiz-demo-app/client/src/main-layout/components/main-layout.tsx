@@ -85,6 +85,7 @@ export const MainLayout = (props: MainLayoutProps) => {
             primaryText="Explorer"
             secondaryText="Passing quiz modules"
             to="/explorer"
+            disabled
             icon={<FolderCopyOutlinedIcon />}
           />
           <MainNavListItem

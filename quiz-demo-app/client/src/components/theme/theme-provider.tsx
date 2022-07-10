@@ -32,9 +32,8 @@ export const ThemeProvider = (props: ThemeProviderProps) => {
     []
   );
 
-  themeValues.components = ComponentsOverrides(themeValues as Theme);
-
   const theme = createTheme(themeValues);
+  theme.components = ComponentsOverrides(theme as Theme);
 
   return (
     <StyledEngineProvider injectFirst>

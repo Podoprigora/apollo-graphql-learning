@@ -4,7 +4,7 @@ export const TextField = (theme: Theme): Components => {
   return {
     MuiTextField: {
       defaultProps: {
-        variant: 'outlined',
+        variant: 'standard',
       },
     },
   };

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import FormHelperText, {
   FormHelperTextProps,
 } from '@mui/material/FormHelperText';
+import { useMemo } from 'react';
 
 // Interface
 export interface EditorModuleFormErrorMessageProps {
@@ -25,19 +26,25 @@ export const EditorModuleFormErrorMessage = (
 ) => {
   const { name, containerComponent: Container } = props;
 
-  return (
-    <ErrorMessage name={name}>
-      {(errorMessage: string) => {
-        if (typeof errorMessage === 'string') {
-          const textElement = (
-            <HelperTextStyles>{errorMessage}</HelperTextStyles>
-          );
+  return useMemo(() => {
+    return (
+      <ErrorMessage name={name}>
+        {(errorMessage: string) => {
+          if (typeof errorMessage === 'string') {
+            const textElement = (
+              <HelperTextStyles>{errorMessage}</HelperTextStyles>
+            );
 
-          return Container ? <Container>{textElement}</Container> : textElement;
-        }
+            return Container ? (
+              <Container>{textElement}</Container>
+            ) : (
+              textElement
+            );
+          }
 
-        return null;
-      }}
-    </ErrorMessage>
-  );
+          return null;
+        }}
+      </ErrorMessage>
+    );
+  }, [name, Container]);
 };

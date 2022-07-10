@@ -62,7 +62,7 @@ const EditorModuleFormOptionInner = (props: EditorModuleFormOptionProps) => {
         component={FormikTextField}
         name={`questions[${parentIndex}].options[${index}].title`}
         autoFocus={autoFocus}
-        label="title"
+        label="Title"
         required
         fullWidth
         multiline

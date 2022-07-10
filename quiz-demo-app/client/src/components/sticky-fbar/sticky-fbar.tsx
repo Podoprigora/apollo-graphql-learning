@@ -72,7 +72,6 @@ export const StickyFbar = (props: StickyFbarProps) => {
   useEffect(() => {
     if (window.ResizeObserver) {
       const ro = new ResizeObserver(handleScroll);
-
       ro.observe(document.body);
 
       return () => {

@@ -5,6 +5,11 @@ import { Typography } from './typography';
 import { Avatar } from './avatar';
 import { Backdrop } from './backdrop';
 import { TextField } from './text-field';
+import { FormHelperText } from './form-helper-text';
+import { Input } from './input';
+import { InputLabel } from './input-label';
+import { FormLabel } from './form-label';
+import { Switch } from './switch';
 
 export const ComponentsOverrides = (theme: Theme): Components => {
   return Object.assign(
@@ -12,6 +17,11 @@ export const ComponentsOverrides = (theme: Theme): Components => {
     Typography(theme),
     Avatar(theme),
     Backdrop(theme),
-    TextField(theme)
+    Input(theme),
+    FormLabel(theme),
+    InputLabel(theme),
+    TextField(theme),
+    Switch(theme),
+    FormHelperText(theme)
   );
 };
