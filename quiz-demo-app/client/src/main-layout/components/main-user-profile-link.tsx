@@ -76,7 +76,7 @@ export const MainUserProfileLink = (props: MainUserProfileLinkProps) => {
         </PrimaryTextStyles>
         {secondaryText && (
           <SecondaryTextStyles component="div" noWrap>
-            demo-user@mail.com
+            {secondaryText}
           </SecondaryTextStyles>
         )}
       </TextContainterStyles>
