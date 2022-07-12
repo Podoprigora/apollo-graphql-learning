@@ -1,6 +1,6 @@
 import { EditorModuleListItemData } from '~/editor/components/editor-module-list';
 
-export const EditorModuleListItemsFixture: EditorModuleListItemData[] = [
+export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
   {
     id: 1,
     title: 'Node.js v1',

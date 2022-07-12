@@ -1,6 +1,6 @@
 import { useMemo, useState, useCallback } from 'react';
 
-import { useGetUserInfoQuery } from './queries';
+import { useGetUserInfoQuery } from './main-layout.queries';
 import {
   MainLayoutContext,
   MainLayoutContextValue,

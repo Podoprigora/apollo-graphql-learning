@@ -14,11 +14,13 @@ export interface MainAsideProps {
 const DrawerStyles = styled(Drawer)(({ theme }) => {
   return {
     flexShrink: 0,
-    width: 300,
+    maxWidth: 320,
+    width: '100%',
 
     '.MuiPaper-root': {
       backgroundColor: theme.palette.background.default,
       borderRight: `1px solid ${theme.palette.divider}`,
+      maxWidth: 'inherit',
       opacity: 1,
     },
   };

@@ -4,9 +4,11 @@ import {
   EditorModuleList as EditorModuleListView,
   EditorModuleListItemData,
 } from '../components/editor-module-list';
-import { EditorModuleListItemsFixture } from '~/fixutures';
+import { useGetModulesQuery } from '../editor.queries';
 
 export const EditorModuleList = () => {
+  const { data, loading } = useGetModulesQuery();
+
   const handleDelete = useCallback(
     (
       ev: React.MouseEvent<HTMLButtonElement>,
@@ -19,7 +21,8 @@ export const EditorModuleList = () => {
 
   return (
     <EditorModuleListView
-      items={EditorModuleListItemsFixture}
+      items={data?.modules}
+      loading={loading}
       onDelete={handleDelete}
     />
   );

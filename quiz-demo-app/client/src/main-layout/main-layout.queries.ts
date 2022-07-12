@@ -4,13 +4,13 @@ import { useQuery, gql } from '@apollo/client';
 
 // UserInfo
 export interface UserInfo {
-  id?: string;
-  fullName?: string;
-  email?: string;
-  pictureUrl?: string;
+  id: string;
+  fullName: string;
+  email: string;
+  pictureUrl: string;
 }
 
-interface GetUserInfoQuery {
+interface GetUserInfoData {
   userInfo?: UserInfo;
 }
 
@@ -26,5 +26,8 @@ const userInfoQuery = gql`
 `;
 
 export const useGetUserInfoQuery = () => {
-  return useQuery<GetUserInfoQuery>(userInfoQuery);
+  return useQuery<GetUserInfoData>(userInfoQuery, {
+    fetchPolicy: 'network-only',
+    nextFetchPolicy: 'cache-only',
+  });
 };

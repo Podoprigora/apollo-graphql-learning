@@ -9,8 +9,12 @@ export interface ModuleListProps {
 const ModuleListStyles = styled('div')(({ theme }) => {
   return {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(min(360px, 100%), 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(min(370px, 100%), 1fr))',
     gridGap: theme.spacing(2),
+
+    '& > :only-child': {
+      maxWidth: 450,
+    },
   };
 });
 

@@ -6,7 +6,7 @@ const typeDefs = gql`
   # Root
 
   type Query {
-    modules(pagination: PaginationInput!): [ModuleListItem!]
+    modules(pagination: PaginationInput): [ModuleListItem!]
     module(id: ID!): ModuleProfile!
     userInfo: UserInfo!
   }

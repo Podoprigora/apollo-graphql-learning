@@ -53,7 +53,8 @@ const RootStyles = styled(ListItemButton)(({ theme }) => {
 
     '.MuiListItemText-secondary': {
       fontSize: theme.typography.pxToRem(13),
-      lineHeight: 1.6,
+      lineHeight: 1.2,
+      marginTop: theme.spacing(0.25),
     },
   };
 }) as typeof ListItemButton;

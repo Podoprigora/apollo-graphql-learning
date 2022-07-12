@@ -7,11 +7,16 @@ import {
 
 export interface EditorModuleListProps {
   items?: EditorModuleListItemData[];
+  loading?: boolean;
   onDelete?: EditorModuleListItemProps['onDelete'];
 }
 
 export const EditorModuleList = (props: EditorModuleListProps) => {
-  const { items = [], onDelete } = props;
+  const { items = [], loading, onDelete } = props;
+
+  if (loading) {
+    return null;
+  }
 
   return (
     <ModuleList>

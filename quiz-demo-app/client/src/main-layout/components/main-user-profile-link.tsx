@@ -50,7 +50,7 @@ const PrimaryTextStyles = styled(Typography)(({ theme }) => {
   return {
     fontSize: theme.typography.pxToRem(14),
     fontWeight: theme.typography.fontWeightMedium,
-    lineHeight: 1,
+    lineHeight: 1.2,
   };
 }) as typeof Typography;
 
@@ -58,7 +58,7 @@ const SecondaryTextStyles = styled(Typography)(({ theme }) => {
   return {
     fontSize: theme.typography.pxToRem(13),
     color: theme.palette.text.secondary,
-    marginTop: theme.spacing(0.5),
+    marginTop: theme.spacing(0.25),
   };
 }) as typeof Typography;
 
