@@ -48,13 +48,12 @@ class ModuleApi {
         const questionId = questionResponse.data?.id;
 
         await Promise.all(
-          options.map(async (question) => {
+          options.map(async (option) => {
             // Add Option
-            await http.post('/options', { ...question, questionId });
+            await http.post('/options', { ...option, questionId });
           })
         );
       }
-
       return response.data;
     }
   }

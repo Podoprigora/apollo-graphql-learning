@@ -134,8 +134,7 @@ const resolvers = {
   Mutation: {
     async saveModule(_, args) {
       const { params } = args;
-
-      return ModuleApi.save(params);
+      return await ModuleApi.save({ ...params });
     },
     async deleteModule(_, args) {
       const { id } = args;
