@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { EditorCreateModulePage } from './components/editor-create-module-page';
+import { EditorCreateModulePage } from './containers/editor-create-module-page.container';
 import { EditorModuleListPage } from './components/editor-module-list-page';
 
 export const EditorRoutes = () => {

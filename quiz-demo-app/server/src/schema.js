@@ -33,6 +33,7 @@ const typeDefs = gql`
   input QuestionInput {
     id: ID
     title: String!
+    multipleChoice: Boolean!
     options: [OptionInput!]!
   }
 

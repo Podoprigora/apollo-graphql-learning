@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useFormik, FormikProvider, FastField, FieldArray } from 'formik';
+import { useFormik, FormikProvider, FastField, FieldArray, FormikHelpers } from 'formik';
 import { TextField as FormikTextField } from 'formik-mui';
 import Button from '@mui/material/Button';
 
@@ -8,26 +8,39 @@ import { PageHeader } from '~/components/page-header';
 import { StickyFbar } from '~/components/sticky-fbar';
 import { PageSection } from '~/components/page-section';
 import { FieldContainer } from '~/components/field-container';
-import {
-  initialValues,
-  validationSchema,
-  EditorModuleFormValues,
-} from './editor-module-form.helpers';
+import { initialValues, validationSchema, EditorModuleFormValues } from './editor-module-form.helpers';
 import { EditorModuleFormQuestionFieldArray } from './editor-module-form-question-field-array';
 
 // Interfaces
 export interface EditorModuleFormProps {
   title?: string;
   initialData?: EditorModuleFormValues;
+  onSubmit?: (values: EditorModuleFormValues) => Promise<unknown>;
 }
 
 // Component
 export const EditorModuleForm = (props: EditorModuleFormProps) => {
-  const { title } = props;
+  const { title, onSubmit } = props;
 
-  const handleSubmit = useCallback((values: EditorModuleFormValues) => {
-    console.log({ values });
-  }, []);
+  const handleSubmit = useCallback(
+    async (values: EditorModuleFormValues, formikHelpers: FormikHelpers<EditorModuleFormValues>) => {
+      if (!onSubmit) {
+        formikHelpers.setSubmitting(false);
+        return undefined;
+      }
+
+      try {
+        await onSubmit(values);
+      } catch (e) {
+        if (e instanceof Error) {
+          console.log(e.message);
+        }
+      } finally {
+        formikHelpers.setSubmitting(false);
+      }
+    },
+    [onSubmit]
+  );
 
   const formik = useFormik({
     initialValues,
@@ -38,7 +51,6 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
 
   const handleSaveClick = useCallback(() => {
     formik.handleSubmit();
-    formik.setSubmitting(false);
   }, [formik]);
 
   return (
@@ -47,13 +59,7 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
 
       <PageSection>
         <FieldContainer>
-          <FastField
-            component={FormikTextField}
-            name="title"
-            label="Title"
-            required
-            fullWidth
-          />
+          <FastField component={FormikTextField} name="title" label="Title" required fullWidth />
           <FastField
             component={FormikTextField}
             name="description"
@@ -76,8 +82,8 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
         <Button variant="text" color="inherit">
           Back
         </Button>
-        <Button variant="contained" color="primary" onClick={handleSaveClick}>
-          Save Changes
+        <Button variant="contained" color="primary" disabled={formik.isSubmitting} onClick={handleSaveClick}>
+          Save Changes {formik.isSubmitting && '...'}
         </Button>
       </StickyFbar>
     </FormikProvider>

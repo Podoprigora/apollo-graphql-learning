@@ -10,11 +10,7 @@ export const EditorModuleListPage = (props: EditorModuleListPageProps) => {
       <PageHeader
         title="Editor of modules"
         action={
-          <RouterButton
-            variant="contained"
-            color="primary"
-            LinkProps={{ to: '/editor/new' }}
-          >
+          <RouterButton variant="contained" color="primary" LinkProps={{ to: '/editor/new' }}>
             Create Module
           </RouterButton>
         }

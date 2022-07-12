@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import { useFormikContext, getIn } from 'formik';
 import Switch from '@mui/material/Switch';
@@ -17,6 +17,7 @@ export const EditorModuleFormAnswerSwitch = (
   props: EditorModuleFormAnswerSwitchProps
 ) => {
   const { index, parentIndex } = props;
+  const shouldResetRef = useRef(false);
 
   const getBaseName = useCallback(
     (optionIndex: number) => {
@@ -25,19 +26,10 @@ export const EditorModuleFormAnswerSwitch = (
     [parentIndex]
   );
 
-  const { values, initialValues, setFieldValue, touched } =
-    useFormikContext<EditorModuleFormValues>();
+  const { values, setFieldValue } = useFormikContext<EditorModuleFormValues>();
 
   const parentQuestion = values.questions[parentIndex];
   const currentOption = parentQuestion.options[index];
-  const isTouchedMultipleChoice = getIn(
-    touched,
-    `questions[${parentIndex}].multipleChoice`
-  );
-  const isChangedMultipleChoice =
-    getIn(initialValues, `questions[${parentIndex}].multipleChoice`) !==
-    getIn(values, `questions[${parentIndex}].multipleChoice`);
-  const shouldReset = isChangedMultipleChoice || isTouchedMultipleChoice;
 
   // Handlers
   const resetSwitches = (omitIndex?: number) => {
@@ -60,16 +52,14 @@ export const EditorModuleFormAnswerSwitch = (
 
   // Effects
   useEffect(() => {
-    if (shouldReset) {
+    if (shouldResetRef.current) {
       setFieldValue(`${getBaseName(index)}.isAnswer`, false, false);
     }
-  }, [
-    shouldReset,
-    parentQuestion.multipleChoice,
-    getBaseName,
-    setFieldValue,
-    index,
-  ]);
+
+    return () => {
+      shouldResetRef.current = true;
+    };
+  }, [parentQuestion.multipleChoice, getBaseName, setFieldValue, index]);
 
   // Render
   return useMemo(() => {
