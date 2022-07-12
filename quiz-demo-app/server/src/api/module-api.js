@@ -71,6 +71,7 @@ class ModuleApi {
 
     const response = await http.get('/modules', {
       params: {
+        isActive: true,
         _page: page,
         _limit: limit,
       },

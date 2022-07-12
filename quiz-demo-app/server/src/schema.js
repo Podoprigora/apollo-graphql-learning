@@ -27,22 +27,19 @@ const typeDefs = gql`
     id: ID
     title: String!
     description: String!
-    screenSize: Int!
     questions: [QuestionInput!]!
   }
 
   input QuestionInput {
     id: ID
-    name: String!
     title: String!
     options: [OptionInput!]!
   }
 
   input OptionInput {
     id: ID
-    name: String!
     title: String!
-    correct: Boolean!
+    isAnswer: Boolean!
   }
 
   # Interfaces
@@ -77,15 +74,14 @@ const typeDefs = gql`
 
   type Question {
     id: ID!
-    name: String!
     title: String!
     options: [Option!]!
   }
 
   type Option {
     id: ID!
-    name: String!
     title: String!
+    isAnswer: Boolean!
   }
 
   type UserInfo {
