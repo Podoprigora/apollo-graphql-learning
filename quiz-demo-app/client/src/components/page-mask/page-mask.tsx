@@ -1,4 +1,7 @@
+import { useEffect } from 'react';
+
 import { styled } from '@mui/material/styles';
+import { unstable_getScrollbarSize } from '@mui/utils';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -22,6 +25,22 @@ const BackdropStyles = styled(Backdrop)(({ theme }) => {
 // Component
 export const PageMask = (props: PageMaskProps) => {
   const { open, disableProgress } = props;
+
+  useEffect(() => {
+    if (open) {
+      const container = document.body;
+      const paddingRight = unstable_getScrollbarSize(document);
+
+      document.documentElement.scrollTop = 0;
+      container.style.setProperty('overflow', 'hidden');
+      container.style.setProperty('padding-right', `${paddingRight}px`);
+
+      return () => {
+        container.style.removeProperty('overflow');
+        container.style.removeProperty('padding-right');
+      };
+    }
+  }, [open]);
 
   return (
     <BackdropStyles open={open}>
