@@ -1,10 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Typography, { TypographyProps } from '@mui/material/Typography';
 
-import {
-  ModuleCardSubtitle,
-  ModuleCardSubtitleStyles,
-} from './module-card-subtitle';
+import { ModuleCardSubtitle, ModuleCardSubtitleStyles } from './module-card-subtitle';
 
 // Interfaces
 export interface ModuleCardHeaderProps {
@@ -20,19 +17,18 @@ interface ModuleCardHeaderStylesProps {
 }
 
 // Styles
-const ModuleCardHeaderStyles = styled('header')<ModuleCardHeaderStylesProps>(
-  ({ theme, ownerState }) => {
-    const { noWrap } = ownerState;
+const ModuleCardHeaderStyles = styled('header')<ModuleCardHeaderStylesProps>(({ theme, ownerState }) => {
+  const { noWrap } = ownerState;
 
-    return {
-      ...(noWrap && { overflow: 'hidden' }),
+  return {
+    alignSelf: 'start',
+    ...(noWrap && { overflow: 'hidden' }),
 
-      [String(ModuleCardSubtitleStyles)]: {
-        marginTop: theme.spacing(1.5),
-      },
-    };
-  }
-);
+    [String(ModuleCardSubtitleStyles)]: {
+      marginTop: theme.spacing(1.5),
+    },
+  };
+});
 
 const ModuleCardTitleStyles = styled((props: TypographyProps) => {
   return <Typography variant="h6" {...props} />;

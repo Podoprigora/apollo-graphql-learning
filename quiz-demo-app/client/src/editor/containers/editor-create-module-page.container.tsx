@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { EditorModuleForm } from '../components/editor-module-form';
 import { EditorModuleFormValues } from '../components/editor-module-form/editor-module-form.helpers';
 import { useSaveModuleMutation } from '../editor.mutations';
+import { getEditorModuleListUrl } from '../editor.urls';
 
 // Interfaces
 export interface EditorCreateModulePageProps {}
@@ -23,7 +24,7 @@ export const EditorCreateModulePage = (props: EditorCreateModulePageProps) => {
             params: values,
           },
         });
-        navigate('/editor');
+        navigate(getEditorModuleListUrl());
       } catch (e) {
         return Promise.reject(e);
       }
@@ -32,7 +33,7 @@ export const EditorCreateModulePage = (props: EditorCreateModulePageProps) => {
   );
 
   const handleCancel = useCallback(() => {
-    navigate('/editor');
+    navigate(getEditorModuleListUrl());
   }, [navigate]);
 
   // Render

@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import { Outlet } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
@@ -10,11 +12,10 @@ import FolderCopyOutlinedIcon from '@mui/icons-material/FolderCopyOutlined';
 import { Logo } from '~/components/logo';
 import { MainAside } from './main-aside';
 import { MainTopBar } from './main-top-bar';
-import {
-  MainUserProfileLink,
-  MainUserProfileLinkProps,
-} from './main-user-profile-link';
+import { MainUserProfileLink, MainUserProfileLinkProps } from './main-user-profile-link';
 import { MainNavListItem } from './main-nav-list-item';
+import { getEditorModuleListUrl } from '~/editor/editor.urls';
+import { useMainLayout } from '../main-layout-context';
 
 // Interfaces
 export interface MainLayoutProps {
@@ -68,6 +69,13 @@ const AsideNavListStyles = styled(List)(({ theme }) => {
 // Component
 export const MainLayout = (props: MainLayoutProps) => {
   const { userProfileData } = props;
+  const { isOpenedMobileNav, closeMobileNav } = useMainLayout();
+
+  const handleListClick = useCallback(() => {
+    if (isOpenedMobileNav) {
+      closeMobileNav();
+    }
+  }, [isOpenedMobileNav, closeMobileNav]);
 
   return (
     <RootStyles>
@@ -80,7 +88,7 @@ export const MainLayout = (props: MainLayoutProps) => {
           <MainUserProfileLink data={userProfileData} />
         </AsideUserProfileStyles>
         <Divider />
-        <AsideNavListStyles>
+        <AsideNavListStyles onClick={handleListClick}>
           <MainNavListItem
             primaryText="Explorer"
             secondaryText="Passing quiz modules"
@@ -91,7 +99,7 @@ export const MainLayout = (props: MainLayoutProps) => {
           <MainNavListItem
             primaryText="Editor"
             secondaryText="Creating and modify modules"
-            to="/editor"
+            to={getEditorModuleListUrl()}
             icon={<ModeEditOutlineOutlinedIcon />}
           />
         </AsideNavListStyles>

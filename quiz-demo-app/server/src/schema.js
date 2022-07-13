@@ -63,6 +63,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     screenSize: Int
+    userInfo: UserInfo
   }
 
   type ModuleProfile implements Module {
@@ -108,6 +109,12 @@ const resolvers = {
 
       return ModuleApi.fetchById(id);
     },
+    async userInfo() {
+      return UserApi.getRandomOne();
+    },
+  },
+
+  ModuleListItem: {
     async userInfo() {
       return UserApi.getRandomOne();
     },

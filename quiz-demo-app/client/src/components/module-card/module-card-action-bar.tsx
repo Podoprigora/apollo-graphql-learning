@@ -7,13 +7,12 @@ import { ModuleCardSubtitle } from './module-card-subtitle';
 
 // Interfaces
 export interface ModuleCardActionBarProps {
-  title: string;
+  title?: string;
   avatarUrl?: string;
   action?: React.ReactElement;
 }
 
-interface ModuleCardActionBarActionsStylesComponent
-  extends React.FC<{ component?: React.ReactElement }> {}
+interface ModuleCardActionBarActionsStylesComponent extends React.FC<{ component?: React.ReactElement }> {}
 
 // Styles
 const ModuleCardActionBarStyles = styled('div')(({ theme }) => {
@@ -23,6 +22,7 @@ const ModuleCardActionBarStyles = styled('div')(({ theme }) => {
     alignItems: 'center',
     color: grey['600'],
     overflow: 'hidden',
+    alignSelf: 'end',
   };
 });
 
@@ -42,17 +42,16 @@ const ModuleCardActionBarTitleStyles = styled(ModuleCardSubtitle)(() => {
   };
 });
 
-const ModuleCardActionBarActionStyles =
-  styled<ModuleCardActionBarActionsStylesComponent>((props) => {
-    const { component } = props;
+const ModuleCardActionBarActionStyles = styled<ModuleCardActionBarActionsStylesComponent>((props) => {
+  const { component } = props;
 
-    return component || null;
-  })(({ theme }) => {
-    return {
-      flex: 'none',
-      marginLeft: theme.spacing(1.5),
-    };
-  });
+  return component || null;
+})(({ theme }) => {
+  return {
+    flex: 'none',
+    marginLeft: theme.spacing(1.5),
+  };
+});
 
 // Component
 export const ModuleCardActionBar = (props: ModuleCardActionBarProps) => {
@@ -78,9 +77,7 @@ export const ModuleCardActionBar = (props: ModuleCardActionBarProps) => {
   return (
     <ModuleCardActionBarStyles>
       {avatarUrl && <ModuleCardActionBarAvatarStyles src={avatarUrl} />}
-      <ModuleCardActionBarTitleStyles noWrap>
-        {title}
-      </ModuleCardActionBarTitleStyles>
+      {title && <ModuleCardActionBarTitleStyles noWrap>{title}</ModuleCardActionBarTitleStyles>}
       <ModuleCardActionBarActionStyles component={actionElement} />
     </ModuleCardActionBarStyles>
   );

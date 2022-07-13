@@ -10,18 +10,20 @@ import { PageSection } from '~/components/page-section';
 import { FieldContainer } from '~/components/field-container';
 import { initialValues, validationSchema, EditorModuleFormValues } from './editor-module-form.helpers';
 import { EditorModuleFormQuestionFieldArray } from './editor-module-form-question-field-array';
+import { PageMask } from '~/components/page-mask';
 
 // Interfaces
 export interface EditorModuleFormProps {
   title?: string;
   initialData?: EditorModuleFormValues;
+  loading?: boolean;
   onSubmit?: (values: EditorModuleFormValues) => Promise<unknown>;
   onCancel?: () => void;
 }
 
 // Component
 export const EditorModuleForm = (props: EditorModuleFormProps) => {
-  const { title, initialData, onSubmit, onCancel } = props;
+  const { title, initialData, loading, onSubmit, onCancel } = props;
 
   // Handlers
   const handleSubmit = useCallback(
@@ -63,39 +65,49 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
   }, [onCancel]);
 
   // Render
+  const openMask = loading || formik.isSubmitting;
+
   return (
-    <FormikProvider value={formik}>
-      {title && <PageHeader title={title} />}
+    <>
+      <PageMask open={openMask} />
+      <FormikProvider value={formik}>
+        {title && <PageHeader title={title} />}
 
-      <PageSection>
-        <FieldContainer>
-          <FastField component={FormikTextField} name="title" label="Title" required fullWidth />
-          <FastField
-            component={FormikTextField}
-            name="description"
-            label="Description"
-            required
-            fullWidth
-            multiline
-            minRows={4}
-          />
-        </FieldContainer>
-      </PageSection>
+        <PageSection>
+          <FieldContainer>
+            <FastField component={FormikTextField} name="title" label="Title" required fullWidth />
+            <FastField
+              component={FormikTextField}
+              name="description"
+              label="Description"
+              required
+              fullWidth
+              multiline
+              minRows={4}
+            />
+          </FieldContainer>
+        </PageSection>
 
-      <FieldArray name="questions" validateOnChange={false}>
-        {(arrayHelpers) => {
-          return <EditorModuleFormQuestionFieldArray {...arrayHelpers} />;
-        }}
-      </FieldArray>
+        <FieldArray name="questions" validateOnChange={false}>
+          {(arrayHelpers) => {
+            return <EditorModuleFormQuestionFieldArray {...arrayHelpers} />;
+          }}
+        </FieldArray>
 
-      <StickyFbar>
-        <Button variant="text" color="inherit" onClick={handleCancel}>
-          Back
-        </Button>
-        <Button variant="contained" color="primary" disabled={formik.isSubmitting} onClick={handleSaveClick}>
-          Save Changes {formik.isSubmitting && '...'}
-        </Button>
-      </StickyFbar>
-    </FormikProvider>
+        <StickyFbar>
+          <Button variant="text" color="inherit" onClick={handleCancel}>
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={formik.isSubmitting}
+            onClick={handleSaveClick}
+          >
+            Save Changes
+          </Button>
+        </StickyFbar>
+      </FormikProvider>
+    </>
   );
 };

@@ -1,11 +1,6 @@
 import React, { useCallback } from 'react';
 
-import {
-  ModuleCard,
-  ModuleCardActionBar,
-  ModuleCardBody,
-  ModuleCardHeader,
-} from '~/components/module-card';
+import { ModuleCard, ModuleCardActionBar, ModuleCardBody, ModuleCardHeader } from '~/components/module-card';
 import { EditorModuleListItemActions } from './editor-module-list-item-actions';
 
 // Interfaces
@@ -14,20 +9,16 @@ export interface EditorModuleListItemData {
   title: string;
   description?: string;
   questionCount?: number;
-  user?: {
-    imageUrl?: string;
-    firstName?: string;
-    lastName?: string;
+  userInfo?: {
+    fullName?: string;
+    pictureUrl?: string;
   };
 }
 
 export interface EditorModuleListItemProps {
   data: EditorModuleListItemData;
   to?: string;
-  onDelete?: (
-    ev: React.MouseEvent<HTMLButtonElement>,
-    data: EditorModuleListItemData
-  ) => void;
+  onDelete?: (ev: React.MouseEvent<HTMLButtonElement>, data: EditorModuleListItemData) => void;
 }
 
 const getQuestionText = (count = 0) => {
@@ -41,7 +32,7 @@ const getQuestionText = (count = 0) => {
 // Component
 export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
   const { data, to, onDelete } = props;
-  const { title, description, questionCount, user } = data;
+  const { title, description, questionCount, userInfo } = data;
 
   const handleDelete = useCallback(
     (ev: React.MouseEvent<HTMLButtonElement>) => {
@@ -54,17 +45,14 @@ export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
 
   // Render
   const questionText = getQuestionText(questionCount);
-  const userFullname = [user?.firstName, user?.lastName].join(' ');
 
   return (
     <ModuleCard to={to}>
       <ModuleCardHeader title={title} subtitle={questionText} />
-      {description && (
-        <ModuleCardBody maxLength={160}>{description}</ModuleCardBody>
-      )}
+      {description && <ModuleCardBody maxLength={160}>{description}</ModuleCardBody>}
       <ModuleCardActionBar
-        title={userFullname}
-        avatarUrl={user?.imageUrl}
+        title={userInfo?.fullName}
+        avatarUrl={userInfo?.pictureUrl}
         action={<EditorModuleListItemActions onDelete={handleDelete} />}
       />
     </ModuleCard>

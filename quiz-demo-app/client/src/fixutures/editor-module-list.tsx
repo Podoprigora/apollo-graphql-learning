@@ -7,10 +7,9 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
     questionCount: 20,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
-    user: {
-      firstName: 'Demo',
-      lastName: 'User',
-      imageUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
+    userInfo: {
+      fullName: 'Demo User',
+      pictureUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
     },
   },
   {
@@ -19,10 +18,9 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
     questionCount: 30,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
-    user: {
-      firstName: 'Demo',
-      lastName: 'User',
-      imageUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
+    userInfo: {
+      fullName: 'Demo User',
+      pictureUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
     },
   },
   {
@@ -31,10 +29,9 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
     questionCount: 40,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
-    user: {
-      firstName: 'Demo',
-      lastName: 'User',
-      imageUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
+    userInfo: {
+      fullName: 'Demo User',
+      pictureUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
     },
   },
   {
@@ -43,10 +40,9 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
     questionCount: 10,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
-    user: {
-      firstName: 'Demo',
-      lastName: 'User',
-      imageUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
+    userInfo: {
+      fullName: 'Demo User',
+      pictureUrl: 'https://randomuser.me/api/portraits/med/men/15.jpg',
     },
   },
 ];

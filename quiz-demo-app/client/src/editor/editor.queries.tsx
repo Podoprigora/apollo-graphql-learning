@@ -5,6 +5,10 @@ export interface Module {
   id: string;
   title: string;
   description: string;
+  userInfo?: {
+    fullName: string;
+    pictureUrl?: string;
+  };
 }
 
 interface GetAllModulesData {
@@ -17,6 +21,10 @@ const allModulesQuery = gql`
       id
       title
       description
+      userInfo {
+        fullName
+        pictureUrl
+      }
     }
   }
 `;
@@ -29,7 +37,10 @@ export const useGetAllModulesQuery = () => {
 };
 
 // GetModuleById
-export interface ModuleProfile extends Module {
+export interface ModuleProfile {
+  id: string;
+  title: string;
+  description: string;
   questions: Array<{
     id: string;
     title: string;

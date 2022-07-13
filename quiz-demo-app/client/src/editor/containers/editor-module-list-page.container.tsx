@@ -5,6 +5,7 @@ import { RouterButton } from '~/components/router-button';
 import { EditorModuleList, EditorModuleListItemData } from '../components/editor-module-list';
 import { useDeleteModuleMutation } from '../editor.mutations';
 import { useGetAllModulesQuery } from '../editor.queries';
+import { getEditorCreateModuleUrl } from '../editor.urls';
 
 export const EditorModuleListPage = () => {
   const { data, loading, refetch } = useGetAllModulesQuery();
@@ -34,7 +35,7 @@ export const EditorModuleListPage = () => {
       <PageHeader
         title="Editor of modules"
         action={
-          <RouterButton variant="contained" color="primary" LinkProps={{ to: '/editor/new' }}>
+          <RouterButton variant="contained" color="primary" LinkProps={{ to: getEditorCreateModuleUrl() }}>
             Create Module
           </RouterButton>
         }

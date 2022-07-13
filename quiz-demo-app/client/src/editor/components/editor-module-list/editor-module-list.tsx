@@ -1,4 +1,5 @@
 import { ModuleList } from '~/components/module-list';
+import { getEditorModuleUrl } from '~/editor/editor.urls';
 import {
   EditorModuleListItem,
   EditorModuleListItemData,
@@ -18,7 +19,12 @@ export const EditorModuleList = (props: EditorModuleListProps) => {
     <ModuleList loading={loading}>
       {items.map((item) => {
         return (
-          <EditorModuleListItem key={item.id} to={`/editor/${item.id}`} data={item} onDelete={onDelete} />
+          <EditorModuleListItem
+            key={item.id}
+            to={getEditorModuleUrl(item.id)}
+            data={item}
+            onDelete={onDelete}
+          />
         );
       })}
     </ModuleList>

@@ -2,11 +2,11 @@ import { useCallback, useEffect, useMemo } from 'react';
 
 import { useNavigate, useParams } from 'react-router-dom';
 
-import { PageMask } from '~/components/page-mask';
 import { EditorModuleForm } from '../components/editor-module-form';
 import { EditorModuleFormValues } from '../components/editor-module-form/editor-module-form.helpers';
 import { useSaveModuleMutation } from '../editor.mutations';
 import { useGetModuleByIdQuery } from '../editor.queries';
+import { getEditorModuleListUrl } from '../editor.urls';
 
 export const EditorModulePage = () => {
   const [getModule, { data, loading }] = useGetModuleByIdQuery();
@@ -23,7 +23,7 @@ export const EditorModulePage = () => {
             params: values,
           },
         });
-        navigate('/editor');
+        navigate(getEditorModuleListUrl());
       } catch (e) {
         return Promise.reject(e);
       }
@@ -32,7 +32,7 @@ export const EditorModulePage = () => {
   );
 
   const handleCancel = useCallback(() => {
-    navigate('/editor');
+    navigate(getEditorModuleListUrl());
   }, [navigate]);
 
   // Effects
@@ -56,14 +56,12 @@ export const EditorModulePage = () => {
   }, [loading, data]);
 
   return (
-    <>
-      <PageMask open={loading} disableProgress />
-      <EditorModuleForm
-        title={initialData?.title || '...'}
-        initialData={initialData}
-        onSubmit={handleSubmit}
-        onCancel={handleCancel}
-      />
-    </>
+    <EditorModuleForm
+      title={initialData?.title || '...'}
+      initialData={initialData}
+      loading={loading}
+      onSubmit={handleSubmit}
+      onCancel={handleCancel}
+    />
   );
 };
