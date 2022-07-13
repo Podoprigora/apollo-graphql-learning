@@ -23,18 +23,16 @@ class ModuleApi {
           questionId = questionResponse.data?.id;
         }
 
-        await Promise.all(
-          options.map(async (option) => {
-            const { id: optionId, ...optionRestParams } = option;
+        for (const option of options) {
+          const { id: optionId, ...optionRestParams } = option;
 
-            // Create / Update Option
-            if (optionId) {
-              await http.patch(`/options/${optionId}`, optionRestParams);
-            } else {
-              await http.post('/options', { ...optionRestParams, questionId });
-            }
-          })
-        );
+          // Create / Update Option
+          if (optionId) {
+            await http.patch(`/options/${optionId}`, optionRestParams);
+          } else {
+            await http.post('/options', { ...optionRestParams, questionId });
+          }
+        }
       }
 
       return response.data;
@@ -56,12 +54,10 @@ class ModuleApi {
         });
         const questionId = questionResponse.data?.id;
 
-        await Promise.all(
-          options.map(async (option) => {
-            // Add Option
-            await http.post('/options', { ...option, questionId });
-          })
-        );
+        for (const option of options) {
+          // Add Option
+          await http.post('/options', { ...option, questionId });
+        }
       }
       return response.data;
     }

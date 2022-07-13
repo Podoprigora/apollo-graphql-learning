@@ -5,6 +5,7 @@ export interface Module {
   id: string;
   title: string;
   description: string;
+  qustionsTotal?: number;
   userInfo?: {
     fullName: string;
     pictureUrl?: string;
@@ -21,6 +22,7 @@ const allModulesQuery = gql`
       id
       title
       description
+      questionsTotal
       userInfo {
         fullName
         pictureUrl

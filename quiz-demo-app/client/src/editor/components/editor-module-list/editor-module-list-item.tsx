@@ -8,7 +8,7 @@ export interface EditorModuleListItemData {
   id: string | number;
   title: string;
   description?: string;
-  questionCount?: number;
+  questionsTotal?: number;
   userInfo?: {
     fullName?: string;
     pictureUrl?: string;
@@ -32,7 +32,7 @@ const getQuestionText = (count = 0) => {
 // Component
 export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
   const { data, to, onDelete } = props;
-  const { title, description, questionCount, userInfo } = data;
+  const { title, description, questionsTotal, userInfo } = data;
 
   const handleDelete = useCallback(
     (ev: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,7 +44,7 @@ export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
   );
 
   // Render
-  const questionText = getQuestionText(questionCount);
+  const questionText = getQuestionText(questionsTotal);
 
   return (
     <ModuleCard to={to}>

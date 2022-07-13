@@ -4,7 +4,7 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
   {
     id: 1,
     title: 'Node.js v1',
-    questionCount: 20,
+    questionsTotal: 20,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
     userInfo: {
@@ -15,7 +15,7 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
   {
     id: 2,
     title: 'Node.js v2',
-    questionCount: 30,
+    questionsTotal: 30,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
     userInfo: {
@@ -26,7 +26,7 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
   {
     id: 3,
     title: 'Node.js v3',
-    questionCount: 40,
+    questionsTotal: 40,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
     userInfo: {
@@ -37,7 +37,7 @@ export const editorModuleListItemsFixture: EditorModuleListItemData[] = [
   {
     id: 4,
     title: 'Node.js v4',
-    questionCount: 10,
+    questionsTotal: 10,
     description:
       'Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.',
     userInfo: {

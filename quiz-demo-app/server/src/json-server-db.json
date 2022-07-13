@@ -1,254 +1,296 @@
 {
   "modules": [
     {
+      "title": "test",
+      "description": "test",
+      "isActive": false,
+      "id": "test"
+    },
+    {
       "title": "Node.js",
       "description": "Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.",
       "isActive": true,
-      "id": "1"
-    },
-    {
-      "title": "sadfasdf",
-      "description": "asdasdf",
-      "isActive": true,
-      "id": "BmJmEb2"
+      "id": "VE38T5E"
     }
   ],
   "questions": [
     {
-      "title": "In which of the following areas, Node.js is perfect to use?",
+      "title": "question 1",
       "multipleChoice": true,
-      "moduleId": "1",
-      "id": "1"
+      "moduleId": "test",
+      "id": "test-1"
     },
     {
-      "title": "What npm stands for?",
+      "title": "What is Node.JS?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "Kh6-c-B"
+      "moduleId": "VE38T5E",
+      "id": "BKb2LOv"
+    },
+    {
+      "title": "Which of the following command will show all the modules installed globally?",
+      "multipleChoice": false,
+      "moduleId": "VE38T5E",
+      "id": "4Rrz-P7"
     },
     {
       "title": "Buffer class is a global class and can be accessed in application without importing buffer module.",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "5qfpnqO"
+      "moduleId": "VE38T5E",
+      "id": "Q0m7YeP"
     },
     {
-      "title": "Which method of fs module is used to read a file?",
+      "title": " Which method of fs module is used to open a file?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "Nh8N1EM"
+      "moduleId": "VE38T5E",
+      "id": "bBTMCNm"
     },
     {
       "title": "Which of the following is true about setInterval(cb, ms) global function?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "uW5y5-6"
+      "moduleId": "VE38T5E",
+      "id": "N3S3cUG"
     },
     {
-      "title": "Is console a global object?",
+      "title": "Which of the following code prints process version?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "z0oDYo-"
+      "moduleId": "VE38T5E",
+      "id": "_9E7-6_"
     },
     {
-      "title": "Which of the following is the correct way to get a joint path?",
+      "title": "Which of the following module is required for network specific operations?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "MfaMQFp"
+      "moduleId": "VE38T5E",
+      "id": "ndqlkUu"
+    },
+    {
+      "title": "net.isIP(input) returns 0 for invalid input.",
+      "multipleChoice": false,
+      "moduleId": "VE38T5E",
+      "id": "nOdFw1c"
     },
     {
       "title": "What is Express?",
       "multipleChoice": false,
-      "moduleId": "1",
-      "id": "MO_TKZJ"
+      "moduleId": "VE38T5E",
+      "id": "iqh5Av6"
     },
     {
-      "title": "asdfasdf",
+      "title": "Each type of Stream is an EventEmitter.",
       "multipleChoice": false,
-      "moduleId": "BmJmEb2",
-      "id": "Yrm3Rer"
+      "moduleId": "VE38T5E",
+      "id": "s7HCsq_"
     }
   ],
   "options": [
     {
-      "title": "I/O bound Applications",
+      "title": "option 1",
       "isAnswer": false,
-      "questionId": "1",
-      "id": "1"
+      "questionId": "test-1",
+      "id": "test-1-1"
     },
     {
-      "title": "Data Streaming Applications",
+      "title": "Node.js is a web server.",
       "isAnswer": false,
-      "questionId": "1",
-      "id": "2"
+      "questionId": "BKb2LOv",
+      "id": "5CdV2AN"
     },
     {
-      "title": "Data Intensive Realtime Applications (DIRT)",
-      "isAnswer": false,
-      "questionId": "1",
-      "id": "lhFOsh2"
-    },
-    {
-      "title": "All of the above.",
+      "title": "Node.js is a JavaScript based framework/platform built on Google Chrome's JavaScript V8 Engine.",
       "isAnswer": true,
-      "questionId": "1",
-      "id": "5QP7bs1"
+      "questionId": "BKb2LOv",
+      "id": "PXn01e4"
     },
     {
-      "title": "Node Package Manager",
+      "title": "Node.js is a java based framework.",
+      "isAnswer": false,
+      "questionId": "BKb2LOv",
+      "id": "3pnWvyC"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "BKb2LOv",
+      "id": "pr_xWHU"
+    },
+    {
+      "title": "$ npm ls -g",
       "isAnswer": true,
-      "questionId": "Kh6-c-B",
-      "id": "BcugMqk"
+      "questionId": "4Rrz-P7",
+      "id": "5PWDJp0"
     },
     {
-      "title": "Node Project Manager",
+      "title": "$ npm ls",
       "isAnswer": false,
-      "questionId": "Kh6-c-B",
-      "id": "sL_L1aP"
+      "questionId": "4Rrz-P7",
+      "id": "muY_dbO"
     },
     {
-      "title": "New Project Manager",
+      "title": "$ node ls -g",
       "isAnswer": false,
-      "questionId": "Kh6-c-B",
-      "id": "18EtsXk"
+      "questionId": "4Rrz-P7",
+      "id": "ped9val"
     },
     {
-      "title": "New Package Manager",
+      "title": "$ node ls",
       "isAnswer": false,
-      "questionId": "Kh6-c-B",
-      "id": "Q_bhs_M"
+      "questionId": "4Rrz-P7",
+      "id": "EJ_hwGA"
     },
     {
       "title": "true",
       "isAnswer": true,
-      "questionId": "5qfpnqO",
-      "id": "bRFjN8x"
+      "questionId": "Q0m7YeP",
+      "id": "t4rG49r"
     },
     {
       "title": "false",
       "isAnswer": false,
-      "questionId": "5qfpnqO",
-      "id": "j2cfgUt"
+      "questionId": "Q0m7YeP",
+      "id": "KaTsZ52"
     },
     {
       "title": "fs.open(path, flags[, mode], callback)",
-      "isAnswer": false,
-      "questionId": "Nh8N1EM",
-      "id": "kWjZyhx"
+      "isAnswer": true,
+      "questionId": "bBTMCNm",
+      "id": "YmpudGK"
     },
     {
       "title": "fs.openFile(path, flags[, mode], callback)",
       "isAnswer": false,
-      "questionId": "Nh8N1EM",
-      "id": "1VEEqWO"
+      "questionId": "bBTMCNm",
+      "id": "1Jx3P9s"
     },
     {
       "title": "fs.openPath(path, flags[, mode], callback)",
       "isAnswer": false,
-      "questionId": "Nh8N1EM",
-      "id": "X-DUxzO"
-    },
-    {
-      "title": "fs.read(fd, buffer, offset, length, position, callback)",
-      "isAnswer": true,
-      "questionId": "Nh8N1EM",
-      "id": "mOkn_9L"
+      "questionId": "bBTMCNm",
+      "id": "WQPcnE2"
     },
     {
       "title": "None of the above.",
       "isAnswer": false,
-      "questionId": "uW5y5-6",
-      "id": "0h7K-GY"
+      "questionId": "bBTMCNm",
+      "id": "7ar5iFv"
     },
     {
       "title": "The setInterval(cb, ms) global function is used to run callback cb repeatedly after at least ms milliseconds.",
       "isAnswer": false,
-      "questionId": "uW5y5-6",
-      "id": "7E-LZ8K"
+      "questionId": "N3S3cUG",
+      "id": "TARd-G2"
     },
     {
       "title": "The setInterval(cb, ms) method returns an opaque value that represents the timer which can be used to clear the timer using the function clearInterval(t).",
       "isAnswer": false,
-      "questionId": "uW5y5-6",
-      "id": "ir_KJjq"
+      "questionId": "N3S3cUG",
+      "id": "azBNfva"
     },
     {
-      "title": "Both of the above.",
+      "title": " Both of the above.",
       "isAnswer": true,
-      "questionId": "uW5y5-6",
-      "id": "ZAEAS2N"
+      "questionId": "N3S3cUG",
+      "id": "YHW7Ebv"
     },
     {
-      "title": "false",
+      "title": "None of the above.",
       "isAnswer": false,
-      "questionId": "z0oDYo-",
-      "id": "5M8sU0J"
+      "questionId": "N3S3cUG",
+      "id": "tvnsUgs"
+    },
+    {
+      "title": "console.log('Current version: ' + process.version());",
+      "isAnswer": false,
+      "questionId": "_9E7-6_",
+      "id": "t1nD69e"
+    },
+    {
+      "title": "console.log('Current version: ' + process.version);",
+      "isAnswer": true,
+      "questionId": "_9E7-6_",
+      "id": "ksT-ASu"
+    },
+    {
+      "title": "console.log('Current version: ' + process.getVersion());",
+      "isAnswer": false,
+      "questionId": "_9E7-6_",
+      "id": "ypaXXpM"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "_9E7-6_",
+      "id": "ZDF6M5M"
+    },
+    {
+      "title": "os module",
+      "isAnswer": false,
+      "questionId": "ndqlkUu",
+      "id": "G_UjqlN"
+    },
+    {
+      "title": "fs module",
+      "isAnswer": false,
+      "questionId": "ndqlkUu",
+      "id": "o52oniJ"
+    },
+    {
+      "title": "net module",
+      "isAnswer": true,
+      "questionId": "ndqlkUu",
+      "id": "bNdAYw5"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "ndqlkUu",
+      "id": "FVs89Q0"
     },
     {
       "title": "true",
       "isAnswer": true,
-      "questionId": "z0oDYo-",
-      "id": "5mCgGXR"
+      "questionId": "nOdFw1c",
+      "id": "oFPCjOE"
     },
     {
-      "title": "path.join('/test', 'test1', '2slashes/1slash', 'tab', '..')",
-      "isAnswer": true,
-      "questionId": "MfaMQFp",
-      "id": "5xZHVN8"
-    },
-    {
-      "title": "path.combine('/test', 'test1', '2slashes/1slash', 'tab', '..')",
+      "title": "false",
       "isAnswer": false,
-      "questionId": "MfaMQFp",
-      "id": "Dea3Li3"
-    },
-    {
-      "title": "buffer.join('/test', 'test1', '2slashes/1slash', 'tab', '..')",
-      "isAnswer": false,
-      "questionId": "MfaMQFp",
-      "id": "szzdX5L"
-    },
-    {
-      "title": "None of the above.",
-      "isAnswer": false,
-      "questionId": "MfaMQFp",
-      "id": "-Vxbr7i"
+      "questionId": "nOdFw1c",
+      "id": "ZnjQdag"
     },
     {
       "title": "Express is a application framework that provides a robust set of features to develop desktop based applications.",
       "isAnswer": false,
-      "questionId": "MO_TKZJ",
-      "id": "88JvgLy"
+      "questionId": "iqh5Av6",
+      "id": "8OecbsA"
     },
     {
       "title": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications.",
       "isAnswer": true,
-      "questionId": "MO_TKZJ",
-      "id": "Kmezhqt"
+      "questionId": "iqh5Av6",
+      "id": "qlrX1Qz"
     },
     {
-      "title": " Both of the above.",
+      "title": "Both of the above.",
       "isAnswer": false,
-      "questionId": "MO_TKZJ",
-      "id": "9WpnuOI"
+      "questionId": "iqh5Av6",
+      "id": "2KNTLNl"
     },
     {
       "title": "None of the above.",
       "isAnswer": false,
-      "questionId": "MO_TKZJ",
-      "id": "lubJrlp"
+      "questionId": "iqh5Av6",
+      "id": "u64_tf6"
     },
     {
-      "title": "asdfasdf",
-      "isAnswer": false,
-      "questionId": "Yrm3Rer",
-      "id": "W7zaw4o"
-    },
-    {
-      "title": "asdfasdf",
+      "title": "true",
       "isAnswer": true,
-      "questionId": "Yrm3Rer",
-      "id": "4RZXFsK"
+      "questionId": "s7HCsq_",
+      "id": "akisf3X"
+    },
+    {
+      "title": "false",
+      "isAnswer": false,
+      "questionId": "s7HCsq_",
+      "id": "f9iSA-7"
     }
   ]
 }

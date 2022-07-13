@@ -62,6 +62,7 @@ const typeDefs = gql`
     id: ID!
     title: String!
     description: String!
+    questionsTotal: Int
     screenSize: Int
     userInfo: UserInfo
   }
@@ -117,6 +118,12 @@ const resolvers = {
   ModuleListItem: {
     async userInfo() {
       return UserApi.getRandomOne();
+    },
+    async questionsTotal(parent) {
+      const { id } = parent;
+      const data = await ModuleApi.fetchQuestions(id);
+
+      return data.length;
     },
   },
 
