@@ -1,79 +1,230 @@
 {
   "modules": [
     {
-      "title": "Module 1",
-      "description": "test description",
-      "isActive": false,
-      "id": 1
-    },
-    {
-      "title": "asdfas dfasdf",
-      "description": "asdf asdfasdf",
-      "isActive": false,
-      "id": 2
-    },
-    {
-      "title": "asdf",
-      "description": "asdf",
-      "isActive": false,
-      "id": 3
+      "title": "Node.js",
+      "description": "Following quiz provides Multiple Choice Questions (MCQs) related to Node.js Framework. You will have to read all the given answers and click over the correct answer.",
+      "isActive": true,
+      "id": "1"
     }
   ],
   "questions": [
     {
-      "title": "Question 1",
-      "moduleId": 1,
-      "id": 1
-    },
-    {
-      "title": "asdf asdfasdf",
+      "title": "In which of the following areas, Node.js is perfect to use?",
       "multipleChoice": true,
-      "moduleId": 2,
-      "id": 2
+      "moduleId": "1",
+      "id": "1"
     },
     {
-      "title": "asdf",
+      "title": "What npm stands for?",
       "multipleChoice": false,
-      "moduleId": 3,
-      "id": 3
+      "moduleId": "1",
+      "id": "Kh6-c-B"
+    },
+    {
+      "title": "Buffer class is a global class and can be accessed in application without importing buffer module.",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "5qfpnqO"
+    },
+    {
+      "title": "Which method of fs module is used to read a file?",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "Nh8N1EM"
+    },
+    {
+      "title": "Which of the following is true about setInterval(cb, ms) global function?",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "uW5y5-6"
+    },
+    {
+      "title": "Is console a global object?",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "z0oDYo-"
+    },
+    {
+      "title": "Which of the following is the correct way to get a joint path?",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "MfaMQFp"
+    },
+    {
+      "title": "What is Express?",
+      "multipleChoice": false,
+      "moduleId": "1",
+      "id": "MO_TKZJ"
     }
   ],
   "options": [
     {
-      "title": "Option 1",
+      "title": "I/O bound Applications",
       "isAnswer": false,
-      "questionId": 1,
-      "id": 1
+      "questionId": "1",
+      "id": "1"
     },
     {
-      "title": "Option 2",
-      "isAnswer": true,
-      "questionId": 1,
-      "id": 2
-    },
-    {
-      "title": "asdfasdf",
-      "isAnswer": true,
-      "questionId": 2,
-      "id": 3
-    },
-    {
-      "title": "asdfasdf",
-      "isAnswer": true,
-      "questionId": 2,
-      "id": 4
-    },
-    {
-      "title": "asdf",
-      "isAnswer": true,
-      "questionId": 3,
-      "id": 5
-    },
-    {
-      "title": "asdf",
+      "title": "Data Streaming Applications",
       "isAnswer": false,
-      "questionId": 3,
-      "id": 6
+      "questionId": "1",
+      "id": "2"
+    },
+    {
+      "title": "Data Intensive Realtime Applications (DIRT)",
+      "isAnswer": false,
+      "questionId": "1",
+      "id": "lhFOsh2"
+    },
+    {
+      "title": "All of the above.",
+      "isAnswer": true,
+      "questionId": "1",
+      "id": "5QP7bs1"
+    },
+    {
+      "title": "Node Package Manager",
+      "isAnswer": true,
+      "questionId": "Kh6-c-B",
+      "id": "BcugMqk"
+    },
+    {
+      "title": "Node Project Manager",
+      "isAnswer": false,
+      "questionId": "Kh6-c-B",
+      "id": "sL_L1aP"
+    },
+    {
+      "title": "New Project Manager",
+      "isAnswer": false,
+      "questionId": "Kh6-c-B",
+      "id": "18EtsXk"
+    },
+    {
+      "title": "New Package Manager",
+      "isAnswer": false,
+      "questionId": "Kh6-c-B",
+      "id": "Q_bhs_M"
+    },
+    {
+      "title": "true",
+      "isAnswer": true,
+      "questionId": "5qfpnqO",
+      "id": "bRFjN8x"
+    },
+    {
+      "title": "false",
+      "isAnswer": false,
+      "questionId": "5qfpnqO",
+      "id": "j2cfgUt"
+    },
+    {
+      "title": "fs.open(path, flags[, mode], callback)",
+      "isAnswer": false,
+      "questionId": "Nh8N1EM",
+      "id": "kWjZyhx"
+    },
+    {
+      "title": "fs.openFile(path, flags[, mode], callback)",
+      "isAnswer": false,
+      "questionId": "Nh8N1EM",
+      "id": "1VEEqWO"
+    },
+    {
+      "title": "fs.openPath(path, flags[, mode], callback)",
+      "isAnswer": false,
+      "questionId": "Nh8N1EM",
+      "id": "X-DUxzO"
+    },
+    {
+      "title": "fs.read(fd, buffer, offset, length, position, callback)",
+      "isAnswer": true,
+      "questionId": "Nh8N1EM",
+      "id": "mOkn_9L"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "uW5y5-6",
+      "id": "0h7K-GY"
+    },
+    {
+      "title": "The setInterval(cb, ms) global function is used to run callback cb repeatedly after at least ms milliseconds.",
+      "isAnswer": false,
+      "questionId": "uW5y5-6",
+      "id": "7E-LZ8K"
+    },
+    {
+      "title": "The setInterval(cb, ms) method returns an opaque value that represents the timer which can be used to clear the timer using the function clearInterval(t).",
+      "isAnswer": false,
+      "questionId": "uW5y5-6",
+      "id": "ir_KJjq"
+    },
+    {
+      "title": "Both of the above.",
+      "isAnswer": true,
+      "questionId": "uW5y5-6",
+      "id": "ZAEAS2N"
+    },
+    {
+      "title": "false",
+      "isAnswer": false,
+      "questionId": "z0oDYo-",
+      "id": "5M8sU0J"
+    },
+    {
+      "title": "true",
+      "isAnswer": true,
+      "questionId": "z0oDYo-",
+      "id": "5mCgGXR"
+    },
+    {
+      "title": "path.join('/test', 'test1', '2slashes/1slash', 'tab', '..')",
+      "isAnswer": true,
+      "questionId": "MfaMQFp",
+      "id": "5xZHVN8"
+    },
+    {
+      "title": "path.combine('/test', 'test1', '2slashes/1slash', 'tab', '..')",
+      "isAnswer": false,
+      "questionId": "MfaMQFp",
+      "id": "Dea3Li3"
+    },
+    {
+      "title": "buffer.join('/test', 'test1', '2slashes/1slash', 'tab', '..')",
+      "isAnswer": false,
+      "questionId": "MfaMQFp",
+      "id": "szzdX5L"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "MfaMQFp",
+      "id": "-Vxbr7i"
+    },
+    {
+      "title": "Express is a application framework that provides a robust set of features to develop desktop based applications.",
+      "isAnswer": false,
+      "questionId": "MO_TKZJ",
+      "id": "88JvgLy"
+    },
+    {
+      "title": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications.",
+      "isAnswer": true,
+      "questionId": "MO_TKZJ",
+      "id": "Kmezhqt"
+    },
+    {
+      "title": " Both of the above.",
+      "isAnswer": false,
+      "questionId": "MO_TKZJ",
+      "id": "9WpnuOI"
+    },
+    {
+      "title": "None of the above.",
+      "isAnswer": false,
+      "questionId": "MO_TKZJ",
+      "id": "lubJrlp"
     }
   ]
 }

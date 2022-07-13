@@ -45,6 +45,10 @@ export const Input = (theme: Theme): Components => {
               opacity: 1,
             },
           },
+
+          '&.Mui-disabled': {
+            opacity: theme.palette.action.disabledOpacity,
+          },
         },
         multiline: {
           padding: '25px 12px 8px',

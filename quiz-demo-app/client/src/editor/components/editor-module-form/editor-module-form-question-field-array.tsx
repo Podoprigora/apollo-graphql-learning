@@ -3,17 +3,12 @@ import { useCallback, useMemo, useState } from 'react';
 import { FieldArrayRenderProps } from 'formik';
 
 import { PageSection } from '~/components/page-section';
-import {
-  EditorModuleFormValues,
-  newQuestionPlaceholderData,
-} from './editor-module-form.helpers';
+import { EditorModuleFormValues, newQuestionPlaceholderData } from './editor-module-form.helpers';
 import { EditorModuleFormAddQuestionButton } from './editor-module-form-add-question-button';
 import { EditorModuleFormQuestion } from './editor-module-form-question';
 import { EditorModuleFormErrorMessage } from './editor-module-form-error-message';
 
-export const EditorModuleFormQuestionFieldArray = (
-  props: FieldArrayRenderProps
-) => {
+export const EditorModuleFormQuestionFieldArray = (props: FieldArrayRenderProps) => {
   const { push, remove, form } = props;
   const [addedManually, setAddedManually] = useState(false);
 
@@ -43,20 +38,19 @@ export const EditorModuleFormQuestionFieldArray = (
 
   return (
     <>
-      {items.map((_, index) => {
+      {items.map((question, index) => {
+        const key = question?.id || index + 1;
+
         return (
           <EditorModuleFormQuestion
-            key={index}
+            key={key}
             index={index}
             autoFocus={addedManually && index === items.length - 1}
             onDelete={handleDelete}
           />
         );
       })}
-      <EditorModuleFormErrorMessage
-        name="questions"
-        containerComponent={PageSection}
-      />
+      <EditorModuleFormErrorMessage name="questions" containerComponent={PageSection} />
       <EditorModuleFormAddQuestionButton onClick={handleAddQuestion} />
     </>
   );

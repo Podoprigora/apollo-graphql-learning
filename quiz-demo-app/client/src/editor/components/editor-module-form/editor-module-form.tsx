@@ -16,12 +16,14 @@ export interface EditorModuleFormProps {
   title?: string;
   initialData?: EditorModuleFormValues;
   onSubmit?: (values: EditorModuleFormValues) => Promise<unknown>;
+  onCancel?: () => void;
 }
 
 // Component
 export const EditorModuleForm = (props: EditorModuleFormProps) => {
-  const { title, onSubmit } = props;
+  const { title, initialData, onSubmit, onCancel } = props;
 
+  // Handlers
   const handleSubmit = useCallback(
     async (values: EditorModuleFormValues, formikHelpers: FormikHelpers<EditorModuleFormValues>) => {
       if (!onSubmit) {
@@ -43,8 +45,9 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
   );
 
   const formik = useFormik({
-    initialValues,
+    initialValues: initialData || initialValues,
     validationSchema,
+    enableReinitialize: true,
     validateOnChange: false,
     onSubmit: handleSubmit,
   });
@@ -53,6 +56,13 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
     formik.handleSubmit();
   }, [formik]);
 
+  const handleCancel = useCallback(() => {
+    if (onCancel) {
+      onCancel();
+    }
+  }, [onCancel]);
+
+  // Render
   return (
     <FormikProvider value={formik}>
       {title && <PageHeader title={title} />}
@@ -79,7 +89,7 @@ export const EditorModuleForm = (props: EditorModuleFormProps) => {
       </FieldArray>
 
       <StickyFbar>
-        <Button variant="text" color="inherit">
+        <Button variant="text" color="inherit" onClick={handleCancel}>
           Back
         </Button>
         <Button variant="contained" color="primary" disabled={formik.isSubmitting} onClick={handleSaveClick}>

@@ -14,20 +14,11 @@ export interface EditorModuleListProps {
 export const EditorModuleList = (props: EditorModuleListProps) => {
   const { items = [], loading, onDelete } = props;
 
-  if (loading) {
-    return null;
-  }
-
   return (
-    <ModuleList>
+    <ModuleList loading={loading}>
       {items.map((item) => {
         return (
-          <EditorModuleListItem
-            key={item.id}
-            to={`/editor/new`}
-            data={item}
-            onDelete={onDelete}
-          />
+          <EditorModuleListItem key={item.id} to={`/editor/${item.id}`} data={item} onDelete={onDelete} />
         );
       })}
     </ModuleList>

@@ -6,7 +6,9 @@ export interface GraphQLProviderProps {
 
 const client = new ApolloClient({
   uri: 'http://localhost:5020/',
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    addTypename: false,
+  }),
 });
 
 export const GraphQLProvider = (props: GraphQLProviderProps) => {

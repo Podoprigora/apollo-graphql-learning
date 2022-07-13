@@ -1,8 +1,10 @@
+import { CircularProgress } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // Interfaces
 export interface ModuleListProps {
   children?: React.ReactNode;
+  loading?: boolean;
 }
 
 // Styles
@@ -18,8 +20,26 @@ const ModuleListStyles = styled('div')(({ theme }) => {
   };
 });
 
+const CircularProgressContainerStyles = styled('div')(({ theme }) => {
+  return {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: theme.spacing(6, 0),
+  };
+});
+
+// Component
 export const ModuleList = (props: ModuleListProps) => {
-  const { children } = props;
+  const { children, loading } = props;
+
+  if (loading) {
+    return (
+      <CircularProgressContainerStyles>
+        <CircularProgress color="primary" size={42} thickness={2.8} />
+      </CircularProgressContainerStyles>
+    );
+  }
 
   return <ModuleListStyles>{children}</ModuleListStyles>;
 };

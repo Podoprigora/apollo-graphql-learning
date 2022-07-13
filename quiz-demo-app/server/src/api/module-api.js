@@ -2,28 +2,37 @@ const { http } = require('./http');
 
 class ModuleApi {
   static async save(params = {}) {
-    const { id, questions = [], ...moduleRestParams } = params;
+    const { id: moduleId, questions = [], ...moduleRestParams } = params;
 
-    if (id) {
+    if (moduleId) {
       // Update module
-      const response = await http.patch(`/modules/${id}`, moduleRestParams);
+      const response = await http.patch(`/modules/${moduleId}`, moduleRestParams);
 
       for (const question of questions) {
-        const {
-          id: questionId,
-          options = [],
-          ...questionRestParams
-        } = question;
+        const { options = [], ...questionRestParams } = question;
+        let questionId = question?.id;
 
-        // Update question
-        await http.patch(`/questions/${questionId}`, questionRestParams);
+        // Create / Update question
+        if (questionId) {
+          await http.patch(`/questions/${questionId}`, questionRestParams);
+        } else {
+          const questionResponse = await http.post('/questions', {
+            ...questionRestParams,
+            moduleId,
+          });
+          questionId = questionResponse.data?.id;
+        }
 
         await Promise.all(
           options.map(async (option) => {
-            const { id: optionId } = option;
+            const { id: optionId, ...optionRestParams } = option;
 
-            // Update Option
-            await http.patch(`/options/${optionId}`, option);
+            // Create / Update Option
+            if (optionId) {
+              await http.patch(`/options/${optionId}`, optionRestParams);
+            } else {
+              await http.post('/options', { ...optionRestParams, questionId });
+            }
           })
         );
       }

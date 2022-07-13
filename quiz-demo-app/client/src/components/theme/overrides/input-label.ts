@@ -13,6 +13,10 @@ export const InputLabel = (theme: Theme): Components => {
           '&.Mui-error': {
             color: theme.palette.text.secondary,
           },
+
+          '&.Mui-disabled': {
+            opacity: theme.palette.action.disabledOpacity,
+          },
         },
         shrink: {
           fontWeight: theme.typography.fontWeightMedium,

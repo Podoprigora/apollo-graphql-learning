@@ -14,6 +14,7 @@ export const EditorCreateModulePage = (props: EditorCreateModulePageProps) => {
   const [saveModule] = useSaveModuleMutation();
   const navigate = useNavigate();
 
+  // Handlers
   const handleSubmit = useCallback(
     async (values: EditorModuleFormValues) => {
       try {
@@ -27,8 +28,13 @@ export const EditorCreateModulePage = (props: EditorCreateModulePageProps) => {
         return Promise.reject(e);
       }
     },
-    [saveModule]
+    [saveModule, navigate]
   );
 
-  return <EditorModuleForm title="Create a new module" onSubmit={handleSubmit} />;
+  const handleCancel = useCallback(() => {
+    navigate('/editor');
+  }, [navigate]);
+
+  // Render
+  return <EditorModuleForm title="Create a new module" onSubmit={handleSubmit} onCancel={handleCancel} />;
 };

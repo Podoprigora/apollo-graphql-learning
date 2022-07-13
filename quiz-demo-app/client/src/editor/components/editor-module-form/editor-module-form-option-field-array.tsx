@@ -7,16 +7,12 @@ import AddIcon from '@mui/icons-material/Add';
 
 import { FieldContainer } from '~/components/field-container';
 import { PageSectionSubtitle } from '~/components/page-section';
-import {
-  EditorModuleFormValues,
-  newOptionPlaceholderData,
-} from './editor-module-form.helpers';
+import { EditorModuleFormValues, newOptionPlaceholderData } from './editor-module-form.helpers';
 import { EditorModuleFormOption } from './editor-module-form-option';
 import { EditorModuleFormErrorMessage } from './editor-module-form-error-message';
 
 // Interface
-export interface EditorModuleFormOptionFieldArrayProps
-  extends FieldArrayRenderProps {
+export interface EditorModuleFormOptionFieldArrayProps extends FieldArrayRenderProps {
   index: number;
 }
 
@@ -28,9 +24,7 @@ const TitleStyles = styled(PageSectionSubtitle)(({ theme }) => {
 });
 
 // Component
-export const EditorModuleFormOptionFieldArray = (
-  props: EditorModuleFormOptionFieldArrayProps
-) => {
+export const EditorModuleFormOptionFieldArray = (props: EditorModuleFormOptionFieldArrayProps) => {
   const { form, index, push, remove } = props;
   const [addedManually, setAddedManually] = useState(false);
 
@@ -47,18 +41,18 @@ export const EditorModuleFormOptionFieldArray = (
   );
 
   const items = useMemo(() => {
-    return (
-      (form.values as EditorModuleFormValues).questions[index].options || []
-    );
+    return (form.values as EditorModuleFormValues).questions[index].options || [];
   }, [form.values, index]);
 
   return (
     <>
       {items.length > 0 && <TitleStyles>Options</TitleStyles>}
-      {items.map((_, i) => {
+      {items.map((option, i) => {
+        const key = option?.id || i + 1;
+
         return (
           <EditorModuleFormOption
-            key={i}
+            key={key}
             index={i}
             parentIndex={index}
             autoFocus={addedManually && i === items.length - 1}

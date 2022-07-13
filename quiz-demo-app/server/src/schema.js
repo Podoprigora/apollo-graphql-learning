@@ -76,6 +76,7 @@ const typeDefs = gql`
   type Question {
     id: ID!
     title: String!
+    multipleChoice: Boolean
     options: [Option!]!
   }
 
