@@ -1,23 +1,25 @@
 import { useQuery, gql } from '@apollo/client';
 
-// @TODO: generate automatically
-
 // UserInfo
-export interface UserInfo {
+export interface AuthUserInfo {
   id: string;
+  firstName: string;
+  lastName: string;
   fullName: string;
   email: string;
   pictureUrl: string;
 }
 
-interface GetUserInfoData {
-  userInfo?: UserInfo;
+interface GetAuthUserInfoData {
+  userInfo?: AuthUserInfo;
 }
 
 const userInfoQuery = gql`
   query GetUserInfo {
     userInfo {
       id
+      firstName
+      lastName
       fullName
       email
       pictureUrl
@@ -25,8 +27,8 @@ const userInfoQuery = gql`
   }
 `;
 
-export const useGetUserInfoQuery = () => {
-  return useQuery<GetUserInfoData>(userInfoQuery, {
+export const useGetAuthUserInfoQuery = () => {
+  return useQuery<GetAuthUserInfoData>(userInfoQuery, {
     fetchPolicy: 'network-only',
     nextFetchPolicy: 'cache-only',
   });

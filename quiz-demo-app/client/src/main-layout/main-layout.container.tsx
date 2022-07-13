@@ -1,16 +1,13 @@
 import { useMemo, useState, useCallback } from 'react';
 
-import { useGetUserInfoQuery } from './main-layout.queries';
-import {
-  MainLayoutContext,
-  MainLayoutContextValue,
-} from './main-layout-context';
+import { MainLayoutContext, MainLayoutContextValue } from './main-layout-context';
 import { MainLayout as MainLayoutView } from './components/main-layout';
 import { MainUserProfileLinkData } from './components/main-user-profile-link';
+import { useAuth } from '~/auth/auth-context';
 
 export const MainLayout = () => {
   const [openMobileNav, setOpenMobileNav] = useState(false);
-  const { data, loading } = useGetUserInfoQuery();
+  const { loading, userInfo } = useAuth();
 
   // Handlers
   const handleOpenMobileNav = useCallback(() => {
@@ -32,12 +29,12 @@ export const MainLayout = () => {
 
   const userProfileData = useMemo<MainUserProfileLinkData>(() => {
     return {
-      id: data?.userInfo?.id || '',
-      primaryText: data?.userInfo?.fullName || '',
-      secondaryText: data?.userInfo?.email,
-      avatarUrl: data?.userInfo?.pictureUrl,
+      id: userInfo?.id || '',
+      primaryText: userInfo?.fullName || '',
+      secondaryText: userInfo?.email,
+      avatarUrl: userInfo?.pictureUrl,
     };
-  }, [data]);
+  }, [userInfo]);
 
   if (loading) {
     return null;

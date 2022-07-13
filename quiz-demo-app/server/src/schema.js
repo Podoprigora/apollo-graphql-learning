@@ -90,7 +90,7 @@ const typeDefs = gql`
 
   type UserInfo {
     id: ID!
-    firsName: String!
+    firstName: String!
     lastName: String!
     fullName: String!
     email: String!
