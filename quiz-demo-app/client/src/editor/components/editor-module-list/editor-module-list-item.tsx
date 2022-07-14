@@ -26,7 +26,7 @@ const getQuestionText = (count = 0) => {
     return '';
   }
 
-  return count > 1 ? `${count} questions` : `{$count} question`;
+  return count > 1 ? `${count} questions` : `${count} question`;
 };
 
 // Component

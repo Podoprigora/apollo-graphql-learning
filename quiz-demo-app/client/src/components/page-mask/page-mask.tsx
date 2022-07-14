@@ -43,7 +43,7 @@ export const PageMask = (props: PageMaskProps) => {
   }, [open]);
 
   return (
-    <BackdropStyles open={open}>
+    <BackdropStyles open={open} timeout={500} unmountOnExit>
       {!disableProgress && <CircularProgress color="primary" size={48} thickness={2.8} />}
     </BackdropStyles>
   );
