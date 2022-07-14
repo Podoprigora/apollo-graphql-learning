@@ -8,7 +8,7 @@
   "scripts": {
     "server": "concurrently npm:server:*",
     "server:apollo": "nodemon ./src/server.js",
-    "server:json": "json-server ./src/json-server-db.json --port 5021 --delay 250"
+    "server:json": "json-server ./src/json-server-db.json --port 5021"
   },
   "nodemonConfig": {
     "ignore": [
