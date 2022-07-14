@@ -17,7 +17,7 @@ export const palette: Partial<Palette> = {
 
   error: {
     main: '#d50000',
-    light: red[300],
+    light: '#ea4d4d',
     dark: red[700],
     contrastText: '#fff',
   },

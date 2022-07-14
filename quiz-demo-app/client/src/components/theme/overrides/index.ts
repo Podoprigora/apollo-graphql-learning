@@ -11,10 +11,12 @@ import { InputLabel } from './input-label';
 import { FormLabel } from './form-label';
 import { Switch } from './switch';
 import { Dialog } from './dialog';
+import { Button } from './button';
 
 export const ComponentsOverrides = (theme: Theme): Components => {
   return Object.assign(
     CssBaseline(theme),
+    Button(theme),
     Typography(theme),
     Avatar(theme),
     Dialog(theme),

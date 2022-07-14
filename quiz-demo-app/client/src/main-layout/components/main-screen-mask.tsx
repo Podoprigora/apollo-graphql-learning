@@ -24,9 +24,9 @@ export const MainScreenMask = (props: MainScreenMaskProps) => {
 
   return (
     <BackdropStyles open={open} unmountOnExit>
-      <Stack direction="column" alignItems="center" gap={6}>
+      <Stack direction="column" alignItems="center" gap={4}>
         <Logo />
-        <CircularProgress color="primary" size={72} thickness={2.4} />
+        <CircularProgress color="primary" size={48} thickness={2.8} />
       </Stack>
     </BackdropStyles>
   );

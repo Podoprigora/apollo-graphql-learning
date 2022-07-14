@@ -1,10 +1,6 @@
 import React, { useCallback } from 'react';
 
-import {
-  usePopupState,
-  bindTrigger,
-  bindMenu,
-} from 'material-ui-popup-state/hooks';
+import { usePopupState, bindTrigger, bindMenu } from 'material-ui-popup-state/hooks';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -58,11 +54,7 @@ export const EditorModuleListItemActions = (props: any) => {
 
   return (
     <>
-      <IconButton
-        {...bindTrigger(popupState)}
-        onClick={handleAnchorClick}
-        onTouchStart={handleAnchorClick}
-      >
+      <IconButton {...bindTrigger(popupState)} onClick={handleAnchorClick} onTouchStart={handleAnchorClick}>
         <MoreVertIcon />
       </IconButton>
       <Menu
@@ -75,7 +67,7 @@ export const EditorModuleListItemActions = (props: any) => {
         onClose={handleMenuClose}
         onClick={handleMenuClose}
       >
-        <MenuItem sx={{ color: 'error.light' }} onClick={handleDelete}>
+        <MenuItem sx={{ color: 'error.main' }} onClick={handleDelete}>
           <ListItemIcon sx={{ color: 'inherit' }}>
             <DeleteOutlineRoundedIcon />
           </ListItemIcon>
