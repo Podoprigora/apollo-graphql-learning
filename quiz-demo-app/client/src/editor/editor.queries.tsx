@@ -35,6 +35,7 @@ export const useGetAllModulesQuery = () => {
   return useQuery<GetAllModulesData>(allModulesQuery, {
     fetchPolicy: 'network-only',
     nextFetchPolicy: 'cache-only',
+    notifyOnNetworkStatusChange: true,
   });
 };
 

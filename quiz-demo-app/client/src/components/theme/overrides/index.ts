@@ -10,12 +10,14 @@ import { Input } from './input';
 import { InputLabel } from './input-label';
 import { FormLabel } from './form-label';
 import { Switch } from './switch';
+import { Dialog } from './dialog';
 
 export const ComponentsOverrides = (theme: Theme): Components => {
   return Object.assign(
     CssBaseline(theme),
     Typography(theme),
     Avatar(theme),
+    Dialog(theme),
     Backdrop(theme),
     Input(theme),
     FormLabel(theme),
