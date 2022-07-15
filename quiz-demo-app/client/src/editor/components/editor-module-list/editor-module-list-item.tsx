@@ -7,12 +7,12 @@ import { EditorModuleListItemActions } from './editor-module-list-item-actions';
 export interface EditorModuleListItemData {
   id: string | number;
   title: string;
-  description?: string;
-  questionsTotal?: number;
+  description?: string | null;
+  questionsTotal?: number | null;
   userInfo?: {
-    fullName?: string;
-    pictureUrl?: string;
-  };
+    fullName?: string | null;
+    pictureUrl?: string | null;
+  } | null;
 }
 
 export interface EditorModuleListItemProps {
@@ -32,7 +32,7 @@ const getQuestionText = (count = 0) => {
 // Component
 export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
   const { data, to, onDelete } = props;
-  const { title, description, questionsTotal, userInfo } = data;
+  const { title, description, questionsTotal, userInfo = {} } = data;
 
   const handleDelete = useCallback(
     (ev: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,15 +44,15 @@ export const EditorModuleListItem = (props: EditorModuleListItemProps) => {
   );
 
   // Render
-  const questionText = getQuestionText(questionsTotal);
+  const questionText = getQuestionText(questionsTotal || 0);
 
   return (
     <ModuleCard to={to}>
       <ModuleCardHeader title={title} subtitle={questionText} />
       {description && <ModuleCardBody maxLength={160}>{description}</ModuleCardBody>}
       <ModuleCardActionBar
-        title={userInfo?.fullName}
-        avatarUrl={userInfo?.pictureUrl}
+        title={userInfo?.fullName || ''}
+        avatarUrl={userInfo?.pictureUrl || ''}
         action={<EditorModuleListItemActions onDelete={handleDelete} />}
       />
     </ModuleCard>

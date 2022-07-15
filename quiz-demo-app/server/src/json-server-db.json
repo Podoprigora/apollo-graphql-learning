@@ -13,9 +13,9 @@
       "id": "VE38T5E"
     },
     {
-      "title": "asdf",
-      "description": "asdf",
-      "isActive": true,
+      "title": "test module",
+      "description": "test description",
+      "isActive": false,
       "id": "M-VK_1M"
     }
   ],

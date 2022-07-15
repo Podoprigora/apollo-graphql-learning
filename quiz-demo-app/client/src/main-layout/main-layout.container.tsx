@@ -49,8 +49,8 @@ export const MainLayout = () => {
     return {
       id: userInfo?.id || '',
       primaryText: userInfo?.fullName || '',
-      secondaryText: userInfo?.email,
-      avatarUrl: userInfo?.pictureUrl,
+      secondaryText: userInfo?.email || '',
+      avatarUrl: userInfo?.pictureUrl || '',
     };
   }, [userInfo]);
 

@@ -6,10 +6,10 @@ export type Auth = {
   userInfo?: {
     id: string;
     firstName: string;
-    lastName?: string;
+    lastName?: string | null;
     fullName: string;
-    email?: string;
-    pictureUrl?: string;
+    email?: string | null;
+    pictureUrl?: string | null;
   };
 };
 

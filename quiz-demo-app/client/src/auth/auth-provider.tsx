@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 import { Auth, AuthContext } from './auth-context';
-import { useGetAuthUserInfoQuery } from './auth.queries';
+import { useGetAuthUserInfoQuery } from './auth.operations';
 
 export interface AuthProviderProps {
   children?: React.ReactNode;

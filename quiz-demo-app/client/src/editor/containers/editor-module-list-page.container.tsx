@@ -6,8 +6,7 @@ import { ActionDialog } from '~/components/action-dialog';
 import { PageHeader } from '~/components/page-header';
 import { RouterButton } from '~/components/router-button';
 import { EditorModuleList, EditorModuleListItemData } from '../components/editor-module-list';
-import { useDeleteModuleMutation } from '../editor.mutations';
-import { useGetAllModulesQuery } from '../editor.queries';
+import { useGetAllModulesQuery, useDeleteModuleMutation } from '../editor.operations';
 import { getEditorCreateModuleUrl } from '../editor.urls';
 
 export const EditorModuleListPage = () => {

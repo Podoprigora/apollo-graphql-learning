@@ -1,13 +1,13 @@
 import * as Yup from 'yup';
 
 export interface EditorModuleFormValues {
-  id?: string;
+  id?: string | null;
   title: string;
   description: string;
   questions: {
     id?: string;
     title: string;
-    multipleChoice: boolean;
+    multipleChoice?: boolean | null;
     options: {
       id?: string;
       title: string;

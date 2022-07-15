@@ -4,8 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { EditorModuleForm } from '../components/editor-module-form';
 import { EditorModuleFormValues } from '../components/editor-module-form/editor-module-form.helpers';
-import { useSaveModuleMutation } from '../editor.mutations';
-import { useGetModuleByIdQuery } from '../editor.queries';
+import { useGetModuleByIdQuery, useSaveModuleMutation } from '../editor.operations';
 import { getEditorModuleListUrl } from '../editor.urls';
 
 export const EditorModulePage = () => {

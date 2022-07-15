@@ -1,0 +1,45 @@
+# Queries
+query GetModules($pagination: PaginationInput) {
+  modules(pagination: $pagination) {
+    id
+    title
+    description
+    questionsTotal
+    userInfo {
+      fullName
+      pictureUrl
+    }
+  }
+}
+
+query GetModuleById($id: ID!) {
+  module(id: $id) {
+    id
+    title
+    description
+    questions {
+      id
+      title
+      multipleChoice
+      options {
+        id
+        title
+        isAnswer
+      }
+    }
+  }
+}
+
+# Mutations
+mutation SaveModule($params: ModuleInput!) {
+  results: saveModule(params: $params) {
+    id
+  }
+}
+
+mutation DeleteModule($id: ID!) {
+  results: deleteModule(id: $id) {
+    id
+  }
+}
+

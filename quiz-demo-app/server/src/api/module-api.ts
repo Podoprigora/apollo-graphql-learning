@@ -1,3 +1,4 @@
+import { Pagination } from '../models';
 import { http } from './http';
 
 export class ModuleApi {
@@ -71,7 +72,7 @@ export class ModuleApi {
     return response.data;
   }
 
-  static async fetchAll(pagination: any) {
+  static async fetchAll(pagination?: Pagination | null) {
     const { page = 1, limit = 20 } = pagination || {};
 
     const response = await http.get('/modules', {

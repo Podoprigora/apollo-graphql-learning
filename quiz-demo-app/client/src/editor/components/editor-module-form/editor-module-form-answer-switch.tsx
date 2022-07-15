@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 
-import { useFormikContext, getIn } from 'formik';
+import { useFormikContext } from 'formik';
 import Switch from '@mui/material/Switch';
 import { useEventCallback } from '@mui/material';
 
@@ -13,9 +13,7 @@ export interface EditorModuleFormAnswerSwitchProps {
 }
 
 // Component
-export const EditorModuleFormAnswerSwitch = (
-  props: EditorModuleFormAnswerSwitchProps
-) => {
+export const EditorModuleFormAnswerSwitch = (props: EditorModuleFormAnswerSwitchProps) => {
   const { index, parentIndex } = props;
   const shouldResetRef = useRef(false);
 

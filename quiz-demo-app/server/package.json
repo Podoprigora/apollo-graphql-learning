@@ -8,7 +8,8 @@
   "scripts": {
     "server": "concurrently npm:server:*",
     "server:apollo": "ts-node-dev --respawn ./src/server.ts",
-    "server:json": "json-server ./src/json-server-db.json --port 5021"
+    "server:json": "json-server ./src/json-server-db.json --port 5021",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "nodemonConfig": {
     "ignore": [
@@ -29,6 +30,10 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.8.1",
+    "@graphql-codegen/introspection": "2.2.0",
+    "@graphql-codegen/typescript": "2.7.1",
+    "@graphql-codegen/typescript-resolvers": "^2.7.1",
     "@types/lodash": "^4.14.182",
     "@types/node": "^18.0.4",
     "@types/uuid": "^8.3.4",

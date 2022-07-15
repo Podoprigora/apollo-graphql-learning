@@ -2,14 +2,7 @@ import _get from 'lodash/get';
 import { v4 as uuid } from 'uuid';
 
 import { http } from './http';
-
-export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  pictureUrl: string;
-}
+import { User } from '../models';
 
 export class UserApi {
   static async getRandomOne(): Promise<User> {

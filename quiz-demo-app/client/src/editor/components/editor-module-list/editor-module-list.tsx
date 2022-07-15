@@ -8,7 +8,7 @@ import {
 } from './editor-module-list-item';
 
 export interface EditorModuleListProps {
-  items?: EditorModuleListItemData[];
+  items?: EditorModuleListItemData[] | null;
   loading?: boolean;
   onDelete?: EditorModuleListItemProps['onDelete'];
 }
@@ -18,9 +18,9 @@ export const EditorModuleList = (props: EditorModuleListProps) => {
 
   return (
     <>
-      {items.length === 0 && !loading && <Empty title="No items" />}
+      {items?.length === 0 && !loading && <Empty title="No items" />}
       <ModuleList loading={loading}>
-        {items.map((item) => {
+        {items?.map((item) => {
           return (
             <EditorModuleListItem
               key={item.id}
