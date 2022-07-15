@@ -1,0 +1,91 @@
+type Query {
+  modules(pagination: PaginationInput): [ModuleListItem!]
+  module(id: ID!): ModuleProfile!
+  userInfo: UserInfo!
+}
+
+type Mutation {
+  saveModule(params: ModuleInput!): RecordID!
+  deleteModule(id: ID!): RecordID
+}
+
+# Inputs
+
+input PaginationInput {
+  page: Int!
+  limit: Int
+}
+
+input ModuleInput {
+  id: ID
+  title: String!
+  description: String!
+  questions: [QuestionInput!]!
+}
+
+input QuestionInput {
+  id: ID
+  title: String!
+  multipleChoice: Boolean!
+  options: [OptionInput!]!
+}
+
+input OptionInput {
+  id: ID
+  title: String!
+  isAnswer: Boolean!
+}
+
+# Interfaces
+
+interface Module {
+  id: ID!
+  title: String!
+  description: String!
+  screenSize: Int
+}
+
+# Types
+
+type RecordID {
+  id: ID!
+}
+
+type ModuleListItem implements Module {
+  id: ID!
+  title: String!
+  description: String!
+  questionsTotal: Int
+  screenSize: Int
+  userInfo: UserInfo
+}
+
+type ModuleProfile implements Module {
+  id: ID!
+  title: String!
+  description: String!
+  screenSize: Int
+  questions: [Question!]!
+}
+
+type Question {
+  id: ID!
+  title: String!
+  multipleChoice: Boolean
+  options: [Option!]!
+}
+
+type Option {
+  id: ID!
+  title: String!
+  isAnswer: Boolean!
+}
+
+type UserInfo {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  fullName: String!
+  email: String!
+  pictureUrl: String
+}
