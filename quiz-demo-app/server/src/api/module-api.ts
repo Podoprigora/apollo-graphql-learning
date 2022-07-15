@@ -1,8 +1,8 @@
-const { http } = require('./http');
+import { http } from './http';
 
-class ModuleApi {
+export class ModuleApi {
   static async save(params = {}) {
-    const { id: moduleId, questions = [], ...moduleRestParams } = params;
+    const { id: moduleId, questions = [], ...moduleRestParams } = params as any;
 
     if (moduleId) {
       // Update module
@@ -63,7 +63,7 @@ class ModuleApi {
     }
   }
 
-  static async delete(id) {
+  static async delete(id: string) {
     const response = await http.patch(`/modules/${id}`, {
       isActive: false,
     });
@@ -71,7 +71,7 @@ class ModuleApi {
     return response.data;
   }
 
-  static async fetchAll(pagination) {
+  static async fetchAll(pagination: any) {
     const { page = 1, limit = 20 } = pagination || {};
 
     const response = await http.get('/modules', {
@@ -84,13 +84,13 @@ class ModuleApi {
 
     return response.data;
   }
-  static async fetchById(id) {
+  static async fetchById(id: string) {
     const response = await http.get(`/modules/${id}`);
 
     return response.data;
   }
 
-  static async fetchQuestions(moduleId) {
+  static async fetchQuestions(moduleId: string) {
     const response = await http.get('/questions', {
       params: {
         moduleId,
@@ -101,7 +101,3 @@ class ModuleApi {
     return response.data;
   }
 }
-
-module.exports = {
-  ModuleApi,
-};

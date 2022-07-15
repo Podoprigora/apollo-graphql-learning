@@ -1,10 +1,18 @@
-const _get = require('lodash/get');
-const { v4: uuid } = require('uuid');
+import _get from 'lodash/get';
+import { v4 as uuid } from 'uuid';
 
-const { http } = require('./http');
+import { http } from './http';
 
-class UserApi {
-  static async getRandomOne() {
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  pictureUrl: string;
+}
+
+export class UserApi {
+  static async getRandomOne(): Promise<User> {
     const response = await http.get('https://randomuser.me/api', {
       params: {
         format: 'json',
@@ -24,7 +32,3 @@ class UserApi {
     };
   }
 }
-
-module.exports = {
-  UserApi,
-};
